@@ -37,7 +37,7 @@
 			<artifactId>javassist</artifactId>
 			<version>3.12.1.GA</version>
 		</dependency>
-		<dependency>
+		<dependency><!-- Simple-model -->
 			<groupId>com.exam.app</groupId>
 			<artifactId>simple-model</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
