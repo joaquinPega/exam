@@ -31,13 +31,13 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User getById(String email) throws UserNotFoundException {
 		beginTransaction();
-		Query query=s.createQuery("FROM User U WHERE U.email = :email");		//hql busca un usuario con el email
-		query.setParameter("email",email );			//asigna email del parametro a la query
-		User usuario= (User) query.uniqueResult();			//trae un solo resultado query.setMaxResults(1),
+		Query query=s.createQuery("FROM User U WHERE U.email = :email");		
+		query.setParameter("email",email );			
+		User usuario= (User) query.uniqueResult();		
 		if(usuario==null){
 			throw new UserNotFoundException("User not found in database");
 		}else{
-			return usuario;			//devuelve el usuario
+			return usuario;			
 		}
 	}
 

@@ -25,13 +25,13 @@ public class ManagerDao {
 	}
 	public Manager getById(String name) throws UserNotFoundException {
 		beginTransaction();
-		Query query=s.createQuery("FROM Manager M WHERE M.name = :name");		//hql busca un usuario con el email
-		query.setParameter("name",name );			//asigna email del parametro a la query
-		Manager manager= (Manager) query.uniqueResult();			//trae un solo resultado query.setMaxResults(1),
+		Query query=s.createQuery("FROM Manager M WHERE M.name = :name");		
+		query.setParameter("name",name );			
+		Manager manager= (Manager) query.uniqueResult();			
 		if(manager==null){
 			throw new UserNotFoundException("manager not found in database");
 		}else{
-			return manager;			//devuelve el usuario
+			return manager;			
 		}
 	}
 	private void beginTransaction(){
