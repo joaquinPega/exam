@@ -8,6 +8,7 @@
   <modules>
     <module>simple-model</module>
     <module>simple-dao</module>
+    <module>simple-webapp</module>
   </modules>
   	<build>
 		<plugins>	<!--Agregado para que funcione en la 1.7 -->
