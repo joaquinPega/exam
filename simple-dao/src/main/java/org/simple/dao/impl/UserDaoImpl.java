@@ -40,4 +40,10 @@ public class UserDaoImpl implements UserDao {
 		return null;
 	}
 
+	@Override
+	public List<User> findMany(String query) throws UserNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

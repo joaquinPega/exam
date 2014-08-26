@@ -16,5 +16,6 @@ public interface UserDao {
 	public List<User> getByName(String name)throws UserNotFoundException;
 	public List<User> getByCompany(String company) throws UserNotFoundException;
 	public List<User> getByExperience(String experience) throws UserNotFoundException;
+	public List<User> findMany(String query)throws UserNotFoundException;
 	
 }
