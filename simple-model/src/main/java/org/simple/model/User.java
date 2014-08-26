@@ -1,6 +1,5 @@
 package org.simple.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,13 +18,8 @@ public class User {
 	private List<Language> languages;
 	private boolean admin;
 	
-	public User(String email,String name,String company,String jobTitle){
-		this.email=email;
-		this.name=name;
-		this.company=company;
-		this.jobTitle=jobTitle;
-		this.languages=new ArrayList<Language>();
-		this.managers=new ArrayList<Manager>();
+	public User(){
+		
 	}
 
 	public String getName() {
@@ -60,14 +54,7 @@ public class User {
 		this.email = email;
 	}
 
-	public List<Manager>getManager() {
-		return managers;
-	}
-
-	public void setManager(List<Manager> managers) {
-		this.managers = managers;
-	}
-
+	
 	public String getExperience() {
 		return experience;
 	}
@@ -76,24 +63,29 @@ public class User {
 		this.experience = experience;
 	}
 
-	public List<Language> getLanguage() {
-		return languages;
-	}
-
-	public void setLanguage(List<Language> languages) {
-		this.languages = languages;
-	}
-	
-	public void addLanguage(Language language){
-		this.languages.add(language);
-	}
-	
-	public void addManager(Manager manager){
-		this.managers.add(manager);
-	}
 	
 	public boolean isAdmin() {
 		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
+	public List<Manager> getManagers() {
+		return managers;
+	}
+
+	public void setManagers(List<Manager> managers) {
+		this.managers = managers;
+	}
+
+	public List<Language> getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(List<Language> languages) {
+		this.languages = languages;
 	}
 	
 }
