@@ -21,15 +21,16 @@ public class ManagerDao {
 		}catch(UserNotFoundException e){
 			s.save(manager);
 			s.getTransaction().commit();
+			s.close();
 		}
 	}
 	public Manager getById(String name) throws UserNotFoundException {
 		beginTransaction();
-		Query query=s.createQuery("FROM Manager U WHERE U.name = :name");		//hql busca un usuario con el email
+		Query query=s.createQuery("FROM Manager M WHERE M.name = :name");		//hql busca un usuario con el email
 		query.setParameter("name",name );			//asigna email del parametro a la query
 		Manager manager= (Manager) query.uniqueResult();			//trae un solo resultado query.setMaxResults(1),
 		if(manager==null){
-			throw new UserNotFoundException("User not found in database");
+			throw new UserNotFoundException("manager not found in database");
 		}else{
 			return manager;			//devuelve el usuario
 		}

@@ -33,6 +33,7 @@ public class HBTestServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		User joaquin = new User();
 		Manager kevin = new Manager("kevin");
+		ManagerDao man= new ManagerDao();
 		ArrayList<Manager> managers = new ArrayList<Manager>();
 		managers.add(kevin);
 		joaquin.setEmail("joaquin_pega@hotmail.com");
@@ -40,9 +41,10 @@ public class HBTestServlet extends HttpServlet {
 		joaquin.setCompany("Globant");
 		joaquin.setAdmin(true);
 		kevin.addUser(joaquin);
+
 		joaquin.setManagers(managers);
 		UserDaoImpl userDao= new UserDaoImpl();
-		ManagerDao man= new ManagerDao();
+
 		man.save(kevin);
 		userDao.save(joaquin);
 		response.getWriter().write("magia");

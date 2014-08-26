@@ -20,7 +20,7 @@
         <property name="password" type="java.lang.String">
             <column name="PASSWORD" />
         </property>
-        <list name="managers" inverse="true" table="MANAGERSBYUSER" lazy="true">
+        <list name="managers" inverse="true" table="MANAGERSBYUSER">
             <key>
                 <column name="NAME" />
             </key>

@@ -8,7 +8,7 @@
             <column name="NAME" />
             <generator class="assigned" />
         </id>
-        <list name="users" inverse="false" table="MANAGERSBYUSER" lazy="true">
+        <list name="users" inverse="false" table="MANAGERSBYUSER">
             <key>
                 <column name="EMAIL" />
             </key>
