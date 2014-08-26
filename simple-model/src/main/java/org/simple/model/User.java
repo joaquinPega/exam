@@ -1,5 +1,7 @@
 package org.simple.model;
 
+import java.util.List;
+
 
 /**
  * 
@@ -13,9 +15,9 @@ public class User {
 	private String jobTitle;
 	private String email;
 	private String password;
-	private Manager manager;
+	private List<Manager> managers;
 	private String experience;
-	private Language language;
+	private List<Language> languages;
 	private boolean admin;
 	
 	public User(){
@@ -84,24 +86,27 @@ public class User {
 	}
 
 
-	public Manager getManager() {
-		return manager;
+	public List<Manager> getManagers() {
+		return managers;
 	}
 
 
-	public void setManager(Manager manager) {
-		this.manager = manager;
+	public void setManagers(List<Manager> managers) {
+		this.managers = managers;
 	}
 
 
-	public Language getLanguage() {
-		return language;
+	public List<Language> getLanguages() {
+		return languages;
 	}
 
 
-	public void setLanguage(Language language) {
-		this.language = language;
+	public void setLanguages(List<Language> languages) {
+		this.languages = languages;
 	}
+
+
+
 
 	
 	
