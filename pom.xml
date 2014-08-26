@@ -8,7 +8,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>simple-model</module>
-		<module>simple-dao</module>
 		<module>simple-webapp</module>
 	</modules>
 	<dependencies>

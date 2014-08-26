@@ -45,9 +45,10 @@ public class HBTestServlet extends HttpServlet {
 		joaquin.setManager(kevin);
 		UserDaoImpl userDao= new UserDaoImpl();
 
-		man.save(kevin);
 
 		userDao.save(joaquin);
+
+		man.save(kevin);
 		response.getWriter().write("magia");
 		
 	}
