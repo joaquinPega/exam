@@ -6,13 +6,11 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>HBTestServlet</servlet-name>
-  	<display-name>HBTestServlet</display-name>
-  	<description></description>
   	<servlet-class>org.simple.webapp.servlets.HBTestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>HBTestServlet</servlet-name>
-  	<url-pattern>/HBTestServlet</url-pattern>
+  	<url-pattern>/test</url-pattern>
   </servlet-mapping>
   
 </web-app>

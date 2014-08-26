@@ -17,11 +17,14 @@ public class UserDaoImpl implements UserDao {
 	public void save(User user) throws DataBaseErrorException {
 		beginTransaction();
 		try{
-			getById(user.getEmail());
+			if(getById(user.getEmail())!=null){
+
+				throw new DataBaseErrorException("User already in data base");
+			}
+			
+		}catch(UserNotFoundException e){
 			s.save(user);
 			s.getTransaction().commit();
-		}catch(UserNotFoundException e){
-			throw new DataBaseErrorException("User already in data base");
 		}
 	}
 

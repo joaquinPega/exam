@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.simple.dao.impl.ManagerDao;
 import org.simple.dao.impl.UserDaoImpl;
 import org.simple.model.Manager;
 import org.simple.model.User;
@@ -41,6 +42,8 @@ public class HBTestServlet extends HttpServlet {
 		kevin.addUser(joaquin);
 		joaquin.setManagers(managers);
 		UserDaoImpl userDao= new UserDaoImpl();
+		ManagerDao man= new ManagerDao();
+		man.save(kevin);
 		userDao.save(joaquin);
 		response.getWriter().write("magia");
 		
