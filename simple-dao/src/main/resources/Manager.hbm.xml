@@ -8,12 +8,12 @@
             <column name="NAME" />
             <generator class="assigned" />
         </id>
-        <list name="users" inverse="false" table="USER" lazy="true">
+        <list name="users" inverse="true" table="USER" lazy="true">
             <key>
                 <column name="NAME" />
             </key>
             <list-index></list-index>
-            <one-to-many class="org.simple.model.User" />
+            <many-to-many class="org.simple.model.User" />
         </list>
     </class>
 </hibernate-mapping>
