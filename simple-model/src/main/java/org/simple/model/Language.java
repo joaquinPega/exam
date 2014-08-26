@@ -8,7 +8,6 @@ public class Language {
 	private String name;
 	
 	public Language(String name) {
-		super();
 		this.name = name;
 	}
 

@@ -1,5 +1,7 @@
 package org.simple.dao;
 
+import java.util.List;
+
 import org.simple.exceptions.DataBaseErrorException;
 import org.simple.exceptions.UserNotFoundException;
 import org.simple.model.User;
@@ -11,4 +13,8 @@ import org.simple.model.User;
 public interface UserDao {
 	public void save(User u) throws DataBaseErrorException;
 	public User getById(String email) throws UserNotFoundException;
+	public List<User> getByName(String name)throws UserNotFoundException;
+	public List<User> getByCompany(String company) throws UserNotFoundException;
+	public List<User> getByExperience(String experience) throws UserNotFoundException;
+	
 }

@@ -4,7 +4,7 @@ package org.simple.exceptions;
  * @author joaquin
  *
  */
-public class UserNotFoundException extends Exception {
+public class UserNotFoundException extends RuntimeException {
 
 	/**
 	 * 

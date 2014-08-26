@@ -11,7 +11,6 @@ public class Manager {
 	private String name;
 	private List<User> users;
 	public Manager(String name) {
-		super();
 		this.name = name;
 		this.users = new ArrayList<User>();
 	}
