@@ -16,6 +16,11 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void save(User user) throws DataBaseErrorException {
 		beginTransaction();
+		
+		s.save(user);
+		s.getTransaction().commit();
+		/*
+		
 		try{
 			if(getById(user.getEmail())!=null){
 
@@ -25,7 +30,7 @@ public class UserDaoImpl implements UserDao {
 		}catch(UserNotFoundException e){
 			s.save(user);
 			s.getTransaction().commit();
-		}
+		}*/
 	}
 
 	@Override

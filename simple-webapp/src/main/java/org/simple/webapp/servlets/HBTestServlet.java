@@ -35,10 +35,8 @@ public class HBTestServlet extends HttpServlet {
 		Manager kevin = new Manager();
 		kevin.setName("kevin");
 		ManagerDao man= new ManagerDao();
-		ArrayList<Manager> managers = new ArrayList<Manager>();
 		ArrayList<User> usuarios= new ArrayList<User>();
 		usuarios.add(joaquin);
-		managers.add(kevin);
 		joaquin.setEmail("joaquin_pega@hotmail.com");
 		joaquin.setName("joaquin");
 		joaquin.setCompany("Globant");
@@ -48,6 +46,7 @@ public class HBTestServlet extends HttpServlet {
 		UserDaoImpl userDao= new UserDaoImpl();
 
 		man.save(kevin);
+
 		userDao.save(joaquin);
 		response.getWriter().write("magia");
 		

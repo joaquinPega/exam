@@ -12,6 +12,8 @@ public class ManagerDao {
 	
 	public void save(Manager manager) throws DataBaseErrorException {
 		beginTransaction();
+		s.save(manager);
+		s.getTransaction().commit();/*
 		try{
 			if(getById(manager.getName())!=null){
 
@@ -21,7 +23,7 @@ public class ManagerDao {
 		}catch(UserNotFoundException e){
 			s.save(manager);
 			s.getTransaction().commit();
-		}
+		}*/
 	}
 	public Manager getById(String name) throws UserNotFoundException {
 		beginTransaction();
