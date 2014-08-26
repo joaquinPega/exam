@@ -21,7 +21,6 @@ public class ManagerDao {
 		}catch(UserNotFoundException e){
 			s.save(manager);
 			s.getTransaction().commit();
-			s.close();
 		}
 	}
 	public Manager getById(String name) throws UserNotFoundException {

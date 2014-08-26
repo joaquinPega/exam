@@ -25,7 +25,6 @@ public class UserDaoImpl implements UserDao {
 		}catch(UserNotFoundException e){
 			s.save(user);
 			s.getTransaction().commit();
-			s.close();
 		}
 	}
 

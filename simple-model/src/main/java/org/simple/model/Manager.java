@@ -1,6 +1,5 @@
 package org.simple.model;
 
-import java.util.ArrayList;
 import java.util.List;
 /**
  * 
@@ -10,9 +9,7 @@ import java.util.List;
 public class Manager {
 	private String name;
 	private List<User> users;
-	public Manager(String name) {
-		this.name = name;
-		this.users = new ArrayList<User>();
+	public Manager() {
 	}
 	public String getName() {
 		return name;
@@ -25,9 +22,6 @@ public class Manager {
 	}
 	public void setUsers(List<User> users) {
 		this.users = users;
-	}
-	public void addUser(User user){
-		this.users.add(user);
 	}
 	
 }
