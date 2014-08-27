@@ -1,6 +1,5 @@
 package org.simple.model;
 
-import java.util.List;
 /**
  * 
  * @author Joaquin Pega (joaquin.pega@globant.com)
@@ -8,7 +7,6 @@ import java.util.List;
  */
 public class Manager {
 	private String name;
-	private List<User> users;
 	public Manager() {
 	}
 	public String getName() {
@@ -16,12 +14,6 @@ public class Manager {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public List<User> getUsers() {
-		return users;
-	}
-	public void setUsers(List<User> users) {
-		this.users = users;
 	}
 	
 }
