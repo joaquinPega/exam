@@ -19,23 +19,10 @@
         <property name="password" type="java.lang.String">
             <column name="PASSWORD" />
         </property>
-        <list name="managers" table="MANAGERSBYUSER" lazy="true" cascade="all">
-            <key>
-                <column name="MANAGER" />
-            </key>
-            <list-index column="idm"/>
-            <many-to-many class="org.simple.model.Manager" column="ID_MANAGER"/>
-        </list>
-        <property name="experience" type="java.lang.String">
-            <column name="EXPERIENCE" />
-        </property>
-        <list name="languages" inverse="false" table="LANGUAGE" lazy="true" cascade="all">
-            <key>
-                <column name="LANGUAGE" />
-            </key>
-            <list-index column="idl"/>
-            <one-to-many class="org.simple.model.Language" />
-        </list>
+        <bag name="managers" table="USER_MANAGER" inverse="true" cascade="all">
+            <key column="user_id"/>
+            <many-to-many class="org.simple.model.Manager" column="manager_id"/>
+        </bag>
         <property name="admin" type="boolean">
             <column name="ADMIN" />
         </property>

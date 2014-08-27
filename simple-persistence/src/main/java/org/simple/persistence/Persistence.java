@@ -9,14 +9,14 @@ public class Persistence {
 	private Session sesion; 
     private Transaction tx;  
 
-    public long guarda(Object contacto) throws HibernateException 
+    public void guarda(Object contacto) throws HibernateException 
     { 
-        long id = 0;  
+        //String id = 0;  
 
         try 
         { 
             iniciaOperacion(); 
-            id = (Long) sesion.save(contacto); 
+            sesion.save(contacto); 
             tx.commit(); 
         } catch (HibernateException he) 
         { 
@@ -26,8 +26,6 @@ public class Persistence {
         { 
             sesion.close(); 
         }  
-
-        return id; 
     }  
 
     public void actualiza(Object contacto) throws HibernateException 
