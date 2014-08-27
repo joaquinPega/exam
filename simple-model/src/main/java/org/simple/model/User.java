@@ -1,5 +1,8 @@
 package org.simple.model;
-
+/*
+ * Cambiar relacion manager uno a uno
+ * Cambiar relacion language uno a uno
+ */
 import java.util.List;
 
 
