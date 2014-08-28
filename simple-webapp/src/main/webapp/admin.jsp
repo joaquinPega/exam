@@ -13,7 +13,7 @@
 	<div>
 		<h2>Users List</h2>
 		<center>
-			<table class="tg">
+			<table class="table">
 				<tr>
 					<th>Name</th>
 					<th>Company</th>

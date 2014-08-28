@@ -8,9 +8,19 @@
   	<servlet-name>HBTestServlet</servlet-name>
   	<servlet-class>org.simple.webapp.servlets.HBTestServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Servlet</servlet-name>
+  	<display-name>Servlet</display-name>
+  	<description></description>
+  	<servlet-class>org.simple.webapp.servlets.Servlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>HBTestServlet</servlet-name>
   	<url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Servlet</servlet-name>
+  	<url-pattern>/servlet</url-pattern>
   </servlet-mapping>
   
 </web-app>

@@ -8,19 +8,17 @@
 <title>Exam work</title>
 </head>
 <body>
-	<h1>ABM</h1>
+	<h1>User Manage System</h1>
 	<!--<div-->
 		<!-- LoginForm-->
-		<form class="loginForm" action="admin.jsp">
-			User: <input id="username" type="text" name="user"><br>
-			Password: <input id="password" type="password"
-				name="password"><br>
+		<form class="loginForm" action="">
+			User: <input id="username" type="text" class="inputBox"><br><br>
+			Password: <input id="password" type="password" class="inputBox"
+				name="password"><br><br>
 		<input type="submit" method="post" value="Log in">
 		</form>
+		<hr>
 		<br>
-		<form name="input"  >
-			
-		</form>
 	<!--<div>  -->
 </body>
 </html>
