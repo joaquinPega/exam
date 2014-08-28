@@ -6,6 +6,7 @@ package org.simple.webhandler;
 
 import java.util.List;
 
+import org.simple.exceptions.CouldNotFinishOperationException;
 import org.simple.exceptions.ObjectDuplicateException;
 import org.simple.exceptions.ObjectNotFoundException;
 import org.simple.model.Language;
@@ -18,6 +19,9 @@ import org.simple.persistence.UserDAO;
 public class WebHandler {
 	public static final int MAX_USERS_PER_PAGE = 20;
 	private static WebHandler instance;
+	private ManagerDAO md;
+	private LanguageDAO ld;
+	private UserDAO ud;
 
 	public static WebHandler getInstance() {
 		if (instance == null) {
@@ -30,9 +34,10 @@ public class WebHandler {
 		startAplication();
 	}
 
-	private void startAplication() {
-		ManagerDAO md = new ManagerDAO();
-		LanguageDAO ld = new LanguageDAO();
+	private void startAplication()throws CouldNotFinishOperationException {
+		this.md = new ManagerDAO();
+		this.ld = new LanguageDAO();
+		this.ud = new UserDAO();
 		for (int i = 0; i < 4; i++) {
 			Manager m = new Manager();
 			Language l = new Language("Language" + i);
@@ -41,74 +46,65 @@ public class WebHandler {
 				md.save(m);
 				ld.save(l);
 			} catch (ObjectDuplicateException e) {
-				
+				throw new CouldNotFinishOperationException("Start bd fail");
 			}
 		}
 
 	}
 
-	public List<User> search(String filter, int page) {
+	public List<User> search(String filter, int page)throws CouldNotFinishOperationException {
 		List<User> users = null;
-		users = new UserDAO().search(filter);
-		if (users.size() > (MAX_USERS_PER_PAGE * page)) {
-			return users.subList((page * MAX_USERS_PER_PAGE)
-					- MAX_USERS_PER_PAGE, 20 * MAX_USERS_PER_PAGE);
-		} else {
-			return users;
+		try {
+			users = ud.search(filter);
+			if (users.size() > (MAX_USERS_PER_PAGE * page)) {
+				return users.subList((page * MAX_USERS_PER_PAGE)
+						- MAX_USERS_PER_PAGE, 20 * MAX_USERS_PER_PAGE);
+			} else {
+				return users;
+			}
+		} catch (ObjectNotFoundException e) {
+			throw new CouldNotFinishOperationException("search user fail");
 		}
-
 	}
 
-	public List<User> getListUsers(int page) {
+	public List<User> getListUsers(int page)
+			throws CouldNotFinishOperationException {
 		List<User> users = null;
-		users = new UserDAO().getAll();
-		if (users.size() > (MAX_USERS_PER_PAGE * page)) {
-			return users.subList((page * MAX_USERS_PER_PAGE)
-					- MAX_USERS_PER_PAGE, 20 * MAX_USERS_PER_PAGE);
-		} else {
-			return users;
+		try {
+			users = ud.getAll();
+			if (users.size() > (MAX_USERS_PER_PAGE * page)) {
+				return users.subList((page * MAX_USERS_PER_PAGE)
+						- MAX_USERS_PER_PAGE, 20 * MAX_USERS_PER_PAGE);
+			} else {
+				return users;
+			}
+		} catch (ObjectNotFoundException e) {
+			throw new CouldNotFinishOperationException("Get user list fail");
 		}
-
 	}
 
-	public String deleteUser(User user) {
-		String result = "Error";
-		UserDAO ud = new UserDAO();
+	public void deleteUser(User user) throws CouldNotFinishOperationException {
 		try {
 			ud.delete(user);
-			result = "Success";
 		} catch (ObjectNotFoundException e) {
-			result = "Edelete";
-		} finally {
-			ud = null;
+			throw new CouldNotFinishOperationException("delete user fail");
 		}
-		return result;
 	}
 
-	public String saveUser(User user) {
-		String result = "Error";
-		UserDAO ud = new UserDAO();
+	public void saveUser(User user) {
 		try {
 			ud.save(user);
-			result = "Success";
 		} catch (ObjectDuplicateException e) {
-			result = "Derror";
+			throw new CouldNotFinishOperationException("Save user fail");
 		}
-		return result;
 	}
 
-	public String updateUser(User user) {
-		String result = "Error";
-		UserDAO ud = new UserDAO();
+	public void updateUser(User user) throws CouldNotFinishOperationException {
 		try {
 			ud.update(user);
-			result = "Success";
 		} catch (ObjectNotFoundException e) {
-			result = "Eupdate";
-		} finally {
-			ud = null;
+			throw new CouldNotFinishOperationException("Update user fail");
 		}
-		return result;
 	}
 
 }

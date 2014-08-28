@@ -24,7 +24,7 @@
             <column name="MANAGER" />
         </many-to-one>
         <property name="experience" type="java.lang.String">
-            <column name="EXPERIENCE" length="500" />
+            <column name="EXPERIENCE" sql-type="text" />
         </property>
         <many-to-one name="language" class="org.simple.model.Language" fetch="join">
             <column name="LANGUAGE" />
