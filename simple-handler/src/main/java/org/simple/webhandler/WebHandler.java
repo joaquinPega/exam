@@ -28,7 +28,7 @@ public class WebHandler {
 	}
 	
 	public String deleteUser(User user){
-		String result="Error";
+		String result="aError";
 		Thread deleteU = new Thread(new DeleteUser(user));
 		try{
 			deleteU.start();
