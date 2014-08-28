@@ -13,14 +13,14 @@ import org.simple.model.User;
 import org.simple.persistence.UserDAO;
 
 public class WebHandler {
-	private final int MAX_USERS_PER_PAGE =20;
-	public String startAplication() {
+	private static final int MAX_USERS_PER_PAGE =20;
+	public static String startAplication() {
 		// TODO: add web start security here initialize all the req for the
 		// aplication
 		return "Success";
 	}
 
-	public List<User> getListUsers(int page) {
+	public static List<User> getListUsers(int page) {
 		// Todo: get 20 users by page searched
 		List<User> users =null;
 		users =new UserDAO().getAll();
@@ -32,7 +32,7 @@ public class WebHandler {
 		
 	}
 	
-	public String deleteUser(User user){
+	public static String deleteUser(User user){
 		String result="Error";
 		Thread deleteU = new Thread(new DeleteUser(user));
 		try{
@@ -46,7 +46,7 @@ public class WebHandler {
 		return result;
 	}
 	
-	public String updateUser(User user) {
+	public static String updateUser(User user) {
 		String result = "Error";
 		Thread updateU = new Thread(new UpdateUser(user));
 		try {
