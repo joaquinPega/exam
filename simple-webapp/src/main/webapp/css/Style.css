@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 h1 {
-	text-align: right;
+	text-align: center;
 }
 
 h2 {
@@ -9,11 +9,12 @@ h2 {
 }
 
 .loginForm {
-	text-align: left;
+	text-align: center;
 	
 }
 
 table, th, td {
 	border: 1px solid black;
 	border-collapse:collapse
+	text-align:center;
 }
