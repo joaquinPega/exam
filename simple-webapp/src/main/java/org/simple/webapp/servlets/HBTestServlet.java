@@ -6,6 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.simple.webhandler.WebHandler;
 
 /**@author joaquin.pega
  * Servlet implementation class HBTestServlet
@@ -25,7 +28,10 @@ public class HBTestServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//joaquin
+		HttpSession session = request.getSession();
+		session.setAttribute("users", WebHandler.getInstance().getListUsers(2));
+		response.sendRedirect("NewFile.jsp");
+		
 	}
 
 	/**

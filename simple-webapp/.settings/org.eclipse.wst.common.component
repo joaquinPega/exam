@@ -6,6 +6,12 @@
         <dependent-module archiveName="simple-model-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simple-model/simple-model">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="simple-handler-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simple-handler/simple-handler">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="simple-persistence-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/simple-persistence/simple-persistence">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="simple-webapp"/>
         <property name="java-output-path" value="/simple-webapp/target/classes"/>
     </wb-module>

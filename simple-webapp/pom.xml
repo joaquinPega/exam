@@ -25,6 +25,11 @@
 			<artifactId>simple-model</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.exam.app</groupId>
+			<artifactId>simple-handler</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>simple-webapp</finalName>

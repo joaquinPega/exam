@@ -4,27 +4,27 @@
 <!-- Generated 27/08/2014 12:14:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="org.simple.model.User" table="USER">
-        <id name="email" type="java.lang.String">
+        <id name="email" length="200" type="java.lang.String">
             <column name="EMAIL" />
             <generator class="assigned" />
         </id>
-        <property name="company" type="java.lang.String">
-            <column name="COMPANY" />
+        <property name="company"    type="java.lang.String">
+            <column name="COMPANY" not-null="true" length="50"/>
         </property>
         <property name="jobTitle" type="java.lang.String">
-            <column name="JOBTITLE" />
+            <column name="JOBTITLE" not-null="true" length="50"/>
         </property>
         <property name="name" type="java.lang.String">
-            <column name="NAME" />
+            <column name="NAME" not-null="true" length="50" />
         </property>
-        <property name="password" type="java.lang.String">
-            <column name="PASSWORD" />
+        <property name="password"  type="java.lang.String">
+            <column name="PASSWORD" not-null="true" length="50" />
         </property>
         <many-to-one name="manager" class="org.simple.model.Manager" fetch="join">
             <column name="MANAGER" />
         </many-to-one>
         <property name="experience" type="java.lang.String">
-            <column name="EXPERIENCE" />
+            <column name="EXPERIENCE" length="500" />
         </property>
         <many-to-one name="language" class="org.simple.model.Language" fetch="join">
             <column name="LANGUAGE" />
