@@ -9,17 +9,18 @@
 </head>
 <body>
 	<h1>ABM</h1>
-	<div class="loginForm">
+	<!--<div-->
 		<!-- LoginForm-->
-		<form action="login">
-			User: <input id="username" type="text" name="user"><br><br>
+		<form class="loginForm" action="admin.jsp">
+			User: <input id="username" type="text" name="user"><br>
 			Password: <input id="password" type="password"
-				name="password"><br><br>
+				name="password"><br>
+		<input type="submit" method="post" value="Log in">
 		</form>
 		<br>
-		<form name="input" action="" method="post">
-			<input type="submit" name="submit" value="Log in">
+		<form name="input"  >
+			
 		</form>
-	</div>
+	<!--<div>  -->
 </body>
 </html>
