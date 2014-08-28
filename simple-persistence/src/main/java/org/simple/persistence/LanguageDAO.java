@@ -74,5 +74,20 @@ public class LanguageDAO implements GenericDAO<Language> {
 		}
 		return languages;
 	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Language> getAll() throws ObjectNotFoundException {
+		this.startOperation();
+		List<Language> languages=null;
+		try{
+			Query query = sesion.createQuery("FROM Language");
+			languages=(List<Language>)query.list();		
+		}catch(HibernateException e){
+			throw new ObjectNotFoundException(e.getMessage());
+		}finally{
+			sesion.close();
+		}
+		return languages;
+	}
 
 }

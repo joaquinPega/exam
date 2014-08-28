@@ -75,5 +75,20 @@ public class ManagerDAO implements GenericDAO<Manager> {
 		}
 		return managers;
 	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Manager> getAll() throws ObjectNotFoundException {
+		this.startOperation();
+		List<Manager> managers=null;
+		try{
+			Query query = sesion.createQuery("FROM Manager");
+			managers=(List<Manager>)query.list();		
+		}catch(HibernateException e){
+			throw new ObjectNotFoundException(e.getMessage());
+		}finally{
+			sesion.close();
+		}
+		return managers;
+	}
 
 }

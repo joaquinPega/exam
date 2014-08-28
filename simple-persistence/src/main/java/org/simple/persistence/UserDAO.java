@@ -77,5 +77,20 @@ public class UserDAO implements GenericDAO<User> {
 		}
 		return usuarios;
 	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> getAll() throws ObjectNotFoundException {
+		this.startOperation();
+		List<User> usuarios=null;
+		try{
+			Query query = sesion.createQuery("FROM User");
+			usuarios=(List<User>)query.list();		
+		}catch(HibernateException e){
+			throw new ObjectNotFoundException(e.getMessage());
+		}finally{
+			sesion.close();
+		}
+		return usuarios;
+	}
 
 }
