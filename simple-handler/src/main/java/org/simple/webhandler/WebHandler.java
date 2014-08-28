@@ -13,7 +13,7 @@ import org.simple.model.User;
 import org.simple.persistence.UserDAO;
 
 public class WebHandler {
-
+	private final int MAX_USERS_PER_PAGE =20;
 	public String startAplication() {
 		// TODO: add web start security here initialize all the req for the
 		// aplication
@@ -24,11 +24,16 @@ public class WebHandler {
 		// Todo: get 20 users by page searched
 		List<User> users =null;
 		users =new UserDAO().getAll();
-		return users;
+		if(users.size()>(MAX_USERS_PER_PAGE*page)){
+			return users.subList((page*MAX_USERS_PER_PAGE)-MAX_USERS_PER_PAGE, 20*MAX_USERS_PER_PAGE);
+		}else{
+			return users;
+		}
+		
 	}
 	
 	public String deleteUser(User user){
-		String result="aError";
+		String result="Error";
 		Thread deleteU = new Thread(new DeleteUser(user));
 		try{
 			deleteU.start();
