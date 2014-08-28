@@ -5,9 +5,12 @@
 <link type="text/css" rel="Stylesheet" href="css/Style.css"/>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Main</title>
 </head>
 <body>
+<div class="head">
+<h1>Examen java globant academy</h1>
+</div>
 <div class="loginFormLeft"><!-- LoginForm-->
 	<form action="login" method="post"><!-- Primer Form login prueba -->
 		Email:<input id="email" type="text" name="email"/></br>
@@ -16,8 +19,12 @@
 	</form>
 </div>
 <div class="loginFormRight">
-    <h1>Header</h1>
-    <p>parrafo</p>
+	<div id="barRight" class="buttonBar">
+	
+		<p>Implementar barra de botones</p>
+	</div>
+
+
 </div>
 </body>
 </html>

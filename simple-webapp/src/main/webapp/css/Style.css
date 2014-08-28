@@ -8,9 +8,16 @@
     margin-left:2%;
     float:left ;
 }
+.head{
+	border: thick solid black;
+	text-align:center;
+}
 #email{
 	margin-left:11%;
 }
 #password{
 	
+}
+#barRight{
+	margin-left:1%;
 }
