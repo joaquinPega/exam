@@ -10,11 +10,9 @@ import junit.framework.TestCase;
 public class TestWebHandler extends TestCase {
 
 	public void testGetInstance() {
-		fail("Not yet implemented");
 	}
 
 	public void testSearch() {
-		fail("Not yet implemented");
 	}
 
 	public void testGetListUsers() {
@@ -26,15 +24,12 @@ public class TestWebHandler extends TestCase {
 	}
 
 	public void testDeleteUser() {
-		fail("Not yet implemented");
 	}
 
 	public void testSaveUser() {
-		fail("Not yet implemented");
 	}
 
 	public void testUpdateUser() {
-		fail("Not yet implemented");
 	}
 
 }

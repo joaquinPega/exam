@@ -19,6 +19,10 @@
   <servlet-name>LogOutServlet</servlet-name>
   <servlet-class>org.simple.webapp.servlets.LogOutServlet</servlet-class>
  </servlet>
+ <servlet>
+  <servlet-name>ModifyServlet</servlet-name>
+  <servlet-class>org.simple.webapp.servlets.ModifyServlet</servlet-class>
+ </servlet>
  <servlet-mapping>
   <servlet-name>HBTestServlet</servlet-name>
   <url-pattern>/test</url-pattern>
@@ -34,5 +38,9 @@
  <servlet-mapping>
   <servlet-name>LogOutServlet</servlet-name>
   <url-pattern>/logout</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>ModifyServlet</servlet-name>
+  <url-pattern>/modifyUser</url-pattern>
  </servlet-mapping>
 </web-app>

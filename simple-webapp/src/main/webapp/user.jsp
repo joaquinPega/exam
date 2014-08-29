@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div>
-		<a href="/logout" id="logout">Logout</a>
+		<a href="http://localhost:8080/simple-webapp/logout" id="logout">Logout</a>
 	</div>
 	<h1>Welcome <%=((User)session.getAttribute("currentUser")).getName()%></h1>
 	<div>
@@ -37,8 +37,9 @@
 		</center>
 		<br>
 		<center>
+		<form name="modifyForm" action="modifyUser" method="get">
 			<input
-				class="adminButtons" type="button" value="Modify profile">
+				class="adminButtons" type="submit" value="Modify profile"></form>
 		</center>
 
 	</div>
