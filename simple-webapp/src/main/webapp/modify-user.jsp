@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div>
-		<a href="main.jsp" id="logout">Logout</a>
+		<a href="http://localhost:8080/simple-webapp/logout" id="logout">Logout</a>
 	</div>
 	<h1>Please modify a user:</h1>
 	<p align="center">
