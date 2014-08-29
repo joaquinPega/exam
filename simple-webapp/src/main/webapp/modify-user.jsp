@@ -8,11 +8,15 @@
 <title>Add new user</title>
 </head>
 <body>
-<script>
-alert("asad");
-</script>
-	<h1>Please add new user:</h1>
+	<div>
+		<a href="main.jsp" id="logout">Logout</a>
+	</div>
+	<h1>Please modify a user:</h1>
+	<p align="center">
+		<i> aca va el nombre de usuario a modificar
+	</p>
 	<table>
+
 		<tr>
 			<th>Name:<input type="text" id="username" class="inputBox"><br>
 				<br></th>
@@ -29,8 +33,8 @@ alert("asad");
 
 	</table>
 	<center>
-	<input type="Submit" id="add" value="Add user" method="post">
+		<input type="Submit" id="add" value="Submit changes" method="post">
 	</center>
-	
+
 </body>
 </html>

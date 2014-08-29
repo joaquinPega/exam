@@ -14,12 +14,12 @@ h2 {
 
 
 
-.table {
+.admin-table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
-.table td {
+.admin-table td {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	padding: 7px 16px;
@@ -29,7 +29,7 @@ h2 {
 	word-break: normal;
 }
 
-.table th {
+.admin-table th {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	font-weight: normal;
@@ -44,4 +44,33 @@ h2 {
 }
 .inputBox {
 	margin-left:1%;
+}
+
+#logout {
+	float: right;
+}
+.user-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.user-table td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 7px 16px;
+	border-style: solid;
+	
+	overflow: hidden;
+	word-break: normal;
+}
+
+.user-table th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 7px 16px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
 }
