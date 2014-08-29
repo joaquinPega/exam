@@ -47,6 +47,7 @@ public class WebHandler {
 				md.save(m);
 				ld.save(l);
 			} catch (ObjectDuplicateException | StartDataBaseException e) {
+				instance = null;
 				throw new CouldNotFinishOperationException("Start bd fail: "+e.getMessage());
 			}
 		}
