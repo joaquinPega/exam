@@ -33,8 +33,7 @@ public class HBTestServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		try {
-			session.setAttribute("users", WebHandler.getInstance()
-					.getListUsers(1));
+			session.setAttribute("users", WebHandler.getInstance().getListUsers(1));
 			response.sendRedirect("NewFile.jsp");
 		} catch (CouldNotFinishOperationException e) {
 			response.getWriter().write(e.getMessage());

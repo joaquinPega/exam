@@ -12,8 +12,10 @@
 	border: thick solid black;
 	text-align:center;
 }
+.buttonBar{
+	width:100%;
+}
 #email{
-	margin-left:11%;
 	margin-top:5%;
 }
 #password{
