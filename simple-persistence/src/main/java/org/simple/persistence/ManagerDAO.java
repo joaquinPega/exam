@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.simple.exceptions.ObjectDuplicateException;
 import org.simple.exceptions.ObjectNotFoundException;
+import org.simple.exceptions.StartDataBaseException;
 import org.simple.model.Manager;
 
 public class ManagerDAO implements GenericDAO<Manager> {
@@ -15,11 +16,14 @@ public class ManagerDAO implements GenericDAO<Manager> {
 	private Session sesion; 
     private Transaction tx;
     
-    private void startOperation() throws HibernateException 
-    { 
-        sesion = HibernateUtil.getSessionFactory().openSession(); 
-        tx = sesion.beginTransaction(); 
-    }  
+    private void startOperation() throws StartDataBaseException {
+		try {
+			sesion = HibernateUtil.getSessionFactory().openSession();
+			tx = sesion.beginTransaction();
+		} catch (ExceptionInInitializerError e) {
+			throw new StartDataBaseException(e.getMessage());
+		}
+	}
 	@Override
 	public void save(Manager t) throws ObjectDuplicateException {
 		this.startOperation();
@@ -66,7 +70,22 @@ public class ManagerDAO implements GenericDAO<Manager> {
 		this.startOperation();
 		List<Manager> managers=null;
 		try{
-			Query query = sesion.createQuery("FROM Manager M WHERE M.name="+filter);
+			Query query = sesion.createQuery("FROM Manager M WHERE M.name LIKE '"+filter+"'");
+			managers=(List<Manager>)query.list();		
+		}catch(HibernateException e){
+			throw new ObjectNotFoundException(e.getMessage());
+		}finally{
+			sesion.close();
+		}
+		return managers;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Manager> getAll() throws ObjectNotFoundException {
+		this.startOperation();
+		List<Manager> managers=null;
+		try{
+			Query query = sesion.createQuery("FROM Manager");
 			managers=(List<Manager>)query.list();		
 		}catch(HibernateException e){
 			throw new ObjectNotFoundException(e.getMessage());

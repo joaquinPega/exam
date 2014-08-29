@@ -17,5 +17,6 @@ public interface GenericDAO<T> {
 	public void update(T t) throws ObjectNotFoundException;
 	public void delete(T t)throws ObjectNotFoundException;
 	public List<T> search(String query)throws ObjectNotFoundException;
+	public List<T> getAll()throws ObjectNotFoundException;
 	
 }
