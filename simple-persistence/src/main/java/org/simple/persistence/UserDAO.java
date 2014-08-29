@@ -16,7 +16,7 @@ public class UserDAO implements GenericDAO<User> {
 	private Session sesion; 
     private Transaction tx;
     
-    private void startOperation() throws HibernateException {
+    private void startOperation() throws StartDataBaseException {
 		try {
 			sesion = HibernateUtil.getSessionFactory().openSession();
 			tx = sesion.beginTransaction();

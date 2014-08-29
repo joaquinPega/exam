@@ -9,6 +9,7 @@ import java.util.List;
 import org.simple.exceptions.CouldNotFinishOperationException;
 import org.simple.exceptions.ObjectDuplicateException;
 import org.simple.exceptions.ObjectNotFoundException;
+import org.simple.exceptions.StartDataBaseException;
 import org.simple.model.Language;
 import org.simple.model.Manager;
 import org.simple.model.User;
@@ -45,8 +46,8 @@ public class WebHandler {
 			try {
 				md.save(m);
 				ld.save(l);
-			} catch (ObjectDuplicateException e) {
-				throw new CouldNotFinishOperationException("Start bd fail");
+			} catch (ObjectDuplicateException | StartDataBaseException e) {
+				throw new CouldNotFinishOperationException("Start bd fail: "+e.getMessage());
 			}
 		}
 
