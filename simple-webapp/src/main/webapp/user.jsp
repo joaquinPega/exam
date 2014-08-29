@@ -1,3 +1,4 @@
+<%@page import="org.simple.model.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -10,9 +11,9 @@
 </head>
 <body>
 	<div>
-		<a href="main.jsp" id="logout">Logout</a>
+		<a href="/logout" id="logout">Logout</a>
 	</div>
-	<h1>Welcome %username%!</h1>
+	<h1>Welcome <%=((User)session.getAttribute("currentUser")).getName()%></h1>
 	<div>
 		<h2>User Profile</h2>
 		<center>
@@ -25,10 +26,10 @@
 					
 				</tr>
 				<tr>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
+					<th><%=((User)session.getAttribute("currentUser")).getName() %></th>
+					<th><%=((User)session.getAttribute("currentUser")).getCompany() %></th>
+					<th><%=((User)session.getAttribute("currentUser")).getJobTitle() %></th>
+					<th><%=((User)session.getAttribute("currentUser")).getEmail() %></th>
 					
 				</tr>
 				

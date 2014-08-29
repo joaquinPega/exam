@@ -18,60 +18,49 @@ import org.simple.webhandler.WebHandler;
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		WebHandler webHandler = WebHandler.getInstance();
-		String email,password;
-		List<User> users;
-		User usuario=null;
-		email=request.getParameter("email");
-		password = request.getParameter("password");
-		users = webHandler.getListUsers(1);
-		for(User u : users){
-			if(u.getEmail().equals(email)&& u.getPassword().equals(password) ){
-				response.getWriter().write("Boluda");
-				usuario = u;
-				break;
-			}
-		}
-		if(usuario == null){
-			response.getWriter().write("No se encontro a nadie");
-		}
-		
-	}
 	
+
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		WebHandler webHandler = WebHandler.getInstance();
-		String email,password;
+		String email, password;
 		List<User> users;
-		User usuario=null;
-		email=request.getParameter("email");
+		User currentUser = null;
+		email = request.getParameter("email");
 		password = request.getParameter("password");
-		try{
-			users = webHandler.getListUsers(1);
-			for(User u : users){
-				if(u.getEmail().equals(email)&& u.getPassword().equals(password) ){
-					response.getWriter().write("Boluda");
-					usuario = u;
+		boolean searchingUser = true;
+		int i =1;
+		while (searchingUser) {
+			users = webHandler.getListUsers(i++); // modificar webHandler
+			for (User u : users) {
+				if (u.getEmail().equals(email)
+						&& u.getPassword().equals(password)) {
+					currentUser = u;
+					session.setAttribute("currentUser", currentUser);
+					searchingUser = false;
 					break;
 				}
 			}
-			if(usuario == null){
-				response.getWriter().write("No se encontro a nadie");
-			}
-		}catch(CouldNotFinishOperationException e){
-			response.getWriter().write(e.getMessage());
+			if(users.isEmpty()){
+				searchingUser = false;
+			}		
 		}
-		
+		if (currentUser == null) {
+			response.getWriter().write("No se encontro a nadie");
+		}else{
+			response.sendRedirect("user.jsp");
+		}
+
 	}
 
 }

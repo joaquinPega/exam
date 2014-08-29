@@ -39,19 +39,6 @@ public class WebHandler {
 		this.md = new ManagerDAO();
 		this.ld = new LanguageDAO();
 		this.ud = new UserDAO();
-		/*for (int i = 0; i < 4; i++) {
-			Manager m = new Manager();
-			Language l = new Language("Language" + i);
-			m.setName("Manager" + i);
-			try {
-				md.save(m);
-				ld.save(l);
-			} catch (ObjectDuplicateException | StartDataBaseException e) {
-				instance = null;
-				throw new CouldNotFinishOperationException("Start bd fail: "+e.getMessage());
-			}
-		}*/
-
 	}
 
 	public List<User> search(String filter, int page)throws CouldNotFinishOperationException {
