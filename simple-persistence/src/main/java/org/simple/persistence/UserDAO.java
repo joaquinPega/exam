@@ -72,7 +72,7 @@ public class UserDAO implements GenericDAO<User> {
 		this.startOperation();
 		List<User> usuarios=null;
 		try{
-			Query query = sesion.createQuery("FROM User U WHERE U.name="+filter + " OR U.company="+ filter+ " OR U.experience="+filter);
+			Query query = sesion.createQuery("FROM User U WHERE U.name LIKE '"+filter + "' OR U.company LIKE '"+ filter+ "' OR U.experience LIKE '"+filter+"'");
 			usuarios=(List<User>)query.list();		
 		}catch(HibernateException e){
 			throw new ObjectNotFoundException(e.getMessage());

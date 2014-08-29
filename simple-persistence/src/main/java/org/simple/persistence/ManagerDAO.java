@@ -70,7 +70,7 @@ public class ManagerDAO implements GenericDAO<Manager> {
 		this.startOperation();
 		List<Manager> managers=null;
 		try{
-			Query query = sesion.createQuery("FROM Manager M WHERE M.name="+filter);
+			Query query = sesion.createQuery("FROM Manager M WHERE M.name LIKE '"+filter+"'");
 			managers=(List<Manager>)query.list();		
 		}catch(HibernateException e){
 			throw new ObjectNotFoundException(e.getMessage());
