@@ -39,7 +39,7 @@ public class WebHandler {
 		this.md = new ManagerDAO();
 		this.ld = new LanguageDAO();
 		this.ud = new UserDAO();
-		for (int i = 0; i < 4; i++) {
+		/*for (int i = 0; i < 4; i++) {
 			Manager m = new Manager();
 			Language l = new Language("Language" + i);
 			m.setName("Manager" + i);
@@ -50,7 +50,7 @@ public class WebHandler {
 				instance = null;
 				throw new CouldNotFinishOperationException("Start bd fail: "+e.getMessage());
 			}
-		}
+		}*/
 
 	}
 

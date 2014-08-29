@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+                         "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+ <display-name>Archetype Created Web Application</display-name>
+ <servlet>
+  <servlet-name>HBTestServlet</servlet-name>
+  <servlet-class>org.simple.webapp.servlets.HBTestServlet</servlet-class>
+ </servlet>
+ <servlet>
+ 	<servlet-name>LoginServlet</servlet-name>
+ 	<display-name>LoginServlet</display-name>
+ 	<description></description>
+ 	<servlet-class>org.simple.webapp.servlets.LoginServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>HBTestServlet</servlet-name>
+  <url-pattern>/test</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>LoginServlet</servlet-name>
+ 	<url-pattern>/LoginServlet</url-pattern>
+ </servlet-mapping>
+ <welcome-file-list>
+  <welcome-file>main.jsp</welcome-file>
+ </welcome-file-list>
+</web-app>

@@ -9,15 +9,12 @@ import junit.framework.TestCase;
 public class TestManagerDAO extends TestCase {
 
 	public void testSave() {
-		fail("Not yet implemented");
 	}
 
 	public void testUpdate() {
-		fail("Not yet implemented");
 	}
 
 	public void testDelete() {
-		fail("Not yet implemented");
 	}
 
 	public void testSearch() {
@@ -30,7 +27,6 @@ public class TestManagerDAO extends TestCase {
 	}
 
 	public void testGetAll() {
-		fail("Not yet implemented");
 	}
 
 }

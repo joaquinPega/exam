@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+.loginFormLeft{
+    float: left;
+}
+.loginFormRight{
+    border-left: thick solid black;
+    height:10000px;    
+    margin-left:2%;
+    float:left ;
+}
+.head{
+	border: thick solid black;
+	text-align:center;
+}
+#email{
+	margin-left:11%;
+	margin-top:5%;
+}
+#password{
+	margin-bottom:1%;
+}
+#barRight{
+	margin-left:1%;
+}
