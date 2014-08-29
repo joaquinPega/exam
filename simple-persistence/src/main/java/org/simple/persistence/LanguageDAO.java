@@ -71,8 +71,7 @@ public class LanguageDAO implements GenericDAO<Language> {
 		this.startOperation();
 		List<Language> languages = null;
 		try {
-			Query query = sesion.createQuery("FROM Language L WHERE L.name="
-					+ filter);
+			Query query = sesion.createQuery("FROM Language L WHERE L.name LIKE '"+ filter+"'");
 			languages = (List<Language>) query.list();
 		} catch (HibernateException e) {
 			throw new ObjectNotFoundException(e.getMessage());
