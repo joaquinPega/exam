@@ -24,3 +24,79 @@
 #barRight{
 	margin-left:1%;
 }
+
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+}
+
+.loginForm {
+	text-align: center;
+}
+
+
+
+.admin-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.admin-table td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 7px 16px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+}
+
+.admin-table th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 7px 16px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+}
+.adminButtons {
+	margin-right:15px;
+}
+.inputBox {
+	margin-left:1%;
+}
+
+#logout {
+	float: right;
+}
+.user-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.user-table td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 7px 16px;
+	border-style: solid;
+	
+	overflow: hidden;
+	word-break: normal;
+}
+
+.user-table th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 7px 16px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+}
