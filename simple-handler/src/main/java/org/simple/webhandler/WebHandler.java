@@ -9,14 +9,20 @@ import java.util.List;
 import org.simple.exceptions.CouldNotFinishOperationException;
 import org.simple.exceptions.ObjectDuplicateException;
 import org.simple.exceptions.ObjectNotFoundException;
+import org.simple.model.Language;
+import org.simple.model.Manager;
 import org.simple.model.User;
+import org.simple.persistence.LanguageDAO;
+import org.simple.persistence.ManagerDAO;
 import org.simple.persistence.UserDAO;
 
 public class WebHandler {
 	public static final int MAX_USERS_PER_PAGE = 20;
 	private static WebHandler instance;
 	private UserDAO ud;
-	List<User> users = null;
+	private ManagerDAO md;
+	private LanguageDAO ld;
+	private List<User> users = null;
 
 	public static WebHandler getInstance() {
 		if (instance == null) {
@@ -31,6 +37,8 @@ public class WebHandler {
 
 	private void startAplication()throws CouldNotFinishOperationException {
 		this.ud = new UserDAO();
+		this.md = new ManagerDAO();
+		this.ld = new LanguageDAO();
 	}
 
 	public List<User> search(String filter, int page)throws CouldNotFinishOperationException {
@@ -87,5 +95,18 @@ public class WebHandler {
 			throw new CouldNotFinishOperationException("Update user fail");
 		}
 	}
-
+	public void saveManager(Manager manager){
+		try{
+			md.save(manager);
+		}catch(ObjectDuplicateException e){
+			throw new CouldNotFinishOperationException("Save manager fail");
+		}
+	}
+	public void saveLanguage(Language language){
+		try{
+			ld.save(language);
+		}catch(ObjectDuplicateException e){
+			throw new CouldNotFinishOperationException("Save language fail");
+		}
+	}
 }

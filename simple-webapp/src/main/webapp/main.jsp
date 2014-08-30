@@ -23,6 +23,11 @@
 				id="password" type="password" name="password" /></br> <input
 				type="submit" name="submit" value="Log in">
 		</form>
+		<label id="userNotFound"><%if(session.getAttribute("userNotFound")!=null &&(Boolean)(session.getAttribute("userNotFound"))){%>
+			Usuario no encontrado
+		<%}
+									
+		%></label>
 	</div>
 	<div class="loginFormRight">
 		<div id="barRight" class="buttonBar">

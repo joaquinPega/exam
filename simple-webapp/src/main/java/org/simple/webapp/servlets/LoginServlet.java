@@ -56,6 +56,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		if (currentUser == null) {
 			session.setAttribute("userNotFound", true);
+			response.sendRedirect("main.jsp");
 		} else {
 			response.sendRedirect("user.jsp");
 		}
