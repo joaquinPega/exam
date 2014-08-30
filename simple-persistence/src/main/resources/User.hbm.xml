@@ -20,11 +20,11 @@
         <property name="password"  type="java.lang.String">
             <column name="PASSWORD" not-null="true" length="50" />
         </property>
-        <many-to-one name="manager" class="org.simple.model.Manager" column = "MANAGER" not-null="true"/>
+        <many-to-one name="manager" class="org.simple.model.Manager" column = "MANAGER" not-null="true" fetch="join"/>
         <property name="experience" type="java.lang.String">
             <column name="EXPERIENCE" sql-type="text" />
         </property>
-        <many-to-one name="language" class="org.simple.model.Language" column="LANGUAGE" not-null="true"/>
+        <many-to-one name="language" class="org.simple.model.Language" column="LANGUAGE" not-null="true" fetch="join"/>
         <property name="admin" type="boolean">
             <column name="ADMIN" />
         </property>
