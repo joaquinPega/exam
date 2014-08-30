@@ -9,20 +9,14 @@ import java.util.List;
 import org.simple.exceptions.CouldNotFinishOperationException;
 import org.simple.exceptions.ObjectDuplicateException;
 import org.simple.exceptions.ObjectNotFoundException;
-import org.simple.exceptions.StartDataBaseException;
-import org.simple.model.Language;
-import org.simple.model.Manager;
 import org.simple.model.User;
-import org.simple.persistence.LanguageDAO;
-import org.simple.persistence.ManagerDAO;
 import org.simple.persistence.UserDAO;
 
 public class WebHandler {
 	public static final int MAX_USERS_PER_PAGE = 20;
 	private static WebHandler instance;
-	private ManagerDAO md;
-	private LanguageDAO ld;
 	private UserDAO ud;
+	List<User> users = null;
 
 	public static WebHandler getInstance() {
 		if (instance == null) {
@@ -36,14 +30,12 @@ public class WebHandler {
 	}
 
 	private void startAplication()throws CouldNotFinishOperationException {
-		this.md = new ManagerDAO();
-		this.ld = new LanguageDAO();
 		this.ud = new UserDAO();
 	}
 
 	public List<User> search(String filter, int page)throws CouldNotFinishOperationException {
-		List<User> users = null;
 		try {
+			if(users==null)
 			users = ud.search(filter);
 			if (users.size() > (MAX_USERS_PER_PAGE * page)) {
 				return users.subList((page * MAX_USERS_PER_PAGE)
@@ -58,8 +50,8 @@ public class WebHandler {
 
 	public List<User> getListUsers(int page)
 			throws CouldNotFinishOperationException {
-		List<User> users = null;
 		try {
+			if(users==null)
 			users = ud.getAll();
 			if (users.size() > (MAX_USERS_PER_PAGE * page)) {
 				return users.subList((page * MAX_USERS_PER_PAGE)

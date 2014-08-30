@@ -18,13 +18,6 @@ import org.simple.webhandler.WebHandler;
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -34,30 +27,36 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		WebHandler webHandler = WebHandler.getInstance();
 		String email, password;
-		List<User> users;
+		List<User> users = null;
 		User currentUser = null;
 		email = request.getParameter("email");
 		password = request.getParameter("password");
 		boolean searchingUser = true;
-		int i =1;
-		while (searchingUser) {
-			users = webHandler.getListUsers(i++); // modificar webHandler
-			for (User u : users) {
-				if (u.getEmail().equals(email)
-						&& u.getPassword().equals(password)) {
-					currentUser = u;
-					session.setAttribute("currentUser", currentUser);
+		int i = 1;
+		try {
+			while (searchingUser) {
+				users = webHandler.getListUsers(i); // modificar webHandler
+				if (users == null || users.isEmpty()) {
 					searchingUser = false;
 					break;
 				}
+				for (User u : users) {
+					if (u.getEmail().equals(email)
+							&& u.getPassword().equals(password)) {
+						currentUser = u;
+						session.setAttribute("currentUser", currentUser);
+						searchingUser = false;
+						break;
+					}
+				}
+				i++;
 			}
-			if(users.isEmpty()){
-				searchingUser = false;
-			}		
+		}catch(CouldNotFinishOperationException e) {
+			response.getWriter().write("Error implementar pagina de error: "+ e.getMessage());
 		}
 		if (currentUser == null) {
-			response.getWriter().write("No se encontro a nadie");
-		}else{
+			session.setAttribute("userNotFound", true);
+		} else {
 			response.sendRedirect("user.jsp");
 		}
 
