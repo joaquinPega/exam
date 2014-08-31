@@ -8,27 +8,28 @@
 <head>
 <link type="text/css" rel="Stylesheet" href="css/Style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="js/Scripts.js"></script>
 <title>Modify user</title>
 </head>
 <body>
 	<div>
-		<a href="http://localhost:8080/simple-webapp/logout" id="logout">Logout</a>
+		<a href="logout" id="logout">Logout</a>
 	</div>
 	<h1>Please modify user:</h1>
 	<p align="center">
 		<i><%=((User) session.getAttribute("currentUser")).getName()%></i>
 	</p>
 
-	<form action="changeUser" method="post">
+	<form name="modifyForm" action="changeUser" method="post" onsubmit="return validateEmail2();">
 		<table>
 			<%
 				List<Language> languages = (List<Language>) session.getAttribute("languages");
 			%>
 			<tr>
-				<th>Email:<input type="text" id="newName" class="inputBox"><br>
+				<th>Email:<input id="email" type="text" name="email"  class="inputBox"><br>
 					<br></th>
 
-				<th>Experience:<input type="text" id="newCompany"
+				<th>Experience:<input type="text" name="newExperience"
 					class="inputBox"><br> <br></th>
 				<th>Language:<select name="languageList">
 						<%
@@ -45,9 +46,13 @@
 
 		</table>
 		<center>
-			<input type="Submit" id="add" value="Submit changes">
+			<input type="submit" name="submit" value="Submit changes">
 		</center>
 	</form>
-
+	<center>
+	<form action="user.jsp">
+		<input type="submit" value="cancel">
+	</form>
+	</center>
 </body>
 </html>

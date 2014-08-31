@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div>
-		<a href="main.jsp" id="logout">Logout</a>
+		<a href="logout" id="logout">Logout</a>
 	</div>
 	<h1>Welcome administrator!</h1>
 	<div>

@@ -30,12 +30,13 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		WebHandler webHandler = WebHandler.getInstance();
 		String email, password;
+		boolean isAdmin;
 		List<User> users = null;
 		List<Language> languages = null;
 		List<Manager> managers = null;
 		User currentUser = null;
 		email = request.getParameter("email");
-		password = request.getParameter("password");
+		password = request.getParameter("password");		
 		try {
 			languages = webHandler.getListLanguages();
 			managers = webHandler.getListManagers();
@@ -59,9 +60,8 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("userNotFound", true);
 			response.sendRedirect("main.jsp");
 		} else {
-			if(currentUser.isAdmin()){
-				session.setAttribute("isAdmin", true);
-			}
+			isAdmin=currentUser.isAdmin();
+			session.setAttribute("isAdmin", isAdmin);
 			response.sendRedirect("user.jsp");
 		}
 

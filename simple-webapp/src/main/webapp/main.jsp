@@ -19,9 +19,9 @@
 		<form name="loginForm" action="login" method="post"
 			onsubmit="return validateEmail();">
 			<!-- Primer Form login prueba -->
-			Email: <input id="email" type="text" name="email" /></br> Password:<input
-				id="password" type="password" name="password" /></br> <input
-				type="submit" name="submit" value="Log in">
+			Email: <input id="email" type="text" name="email" /></br> 
+			Password:<input	id="password" type="password" name="password" /></br> 
+			<input type="submit" name="submit" value="Log in">
 		</form>
 		<label id="userNotFound"><%if(session.getAttribute("userNotFound")!=null &&(Boolean)(session.getAttribute("userNotFound"))){%>
 			Usuario no encontrado
