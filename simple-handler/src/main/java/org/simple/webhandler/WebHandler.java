@@ -22,6 +22,8 @@ public class WebHandler {
 	private ManagerDAO md;
 	private LanguageDAO ld;
 	private List<User> users = null;
+	private List<Language> languages = null;
+	private List<Manager> managers = null;
 
 	public static WebHandler getInstance() {
 		if (instance == null) {
@@ -96,6 +98,20 @@ public class WebHandler {
 			throw new CouldNotFinishOperationException("Save language fail");
 		}
 	}
-
-	
+	public List<Language> getListLanguages()throws CouldNotFinishOperationException{
+		try {			
+			languages = ld.getAll();
+			return languages;
+		} catch (ObjectNotFoundException e) {
+			throw new CouldNotFinishOperationException("Get user list fail");
+		}
+	}
+	public List<Manager> getListManagers()throws CouldNotFinishOperationException{
+		try {			
+			managers = md.getAll();
+			return managers;
+		} catch (ObjectNotFoundException e) {
+			throw new CouldNotFinishOperationException("Get user list fail");
+		}
+	}
 }

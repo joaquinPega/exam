@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.simple.exceptions.CouldNotFinishOperationException;
+import org.simple.model.Language;
+import org.simple.model.Manager;
 import org.simple.model.User;
 import org.simple.webhandler.WebHandler;
 
@@ -29,10 +31,14 @@ public class LoginServlet extends HttpServlet {
 		WebHandler webHandler = WebHandler.getInstance();
 		String email, password;
 		List<User> users = null;
+		List<Language> languages = null;
+		List<Manager> managers = null;
 		User currentUser = null;
 		email = request.getParameter("email");
 		password = request.getParameter("password");
 		try {
+			languages = webHandler.getListLanguages();
+			managers = webHandler.getListManagers();
 			users = webHandler.getListUsers(); // modificar webHandler
 			for (User u : users) {
 				if (u.getEmail().equals(email)
@@ -42,6 +48,9 @@ public class LoginServlet extends HttpServlet {
 					break;
 				}
 			}
+			session.setAttribute("users", users);
+			session.setAttribute("languages", languages);
+			session.setAttribute("managers", managers);
 		} catch (CouldNotFinishOperationException e) {
 			response.getWriter().write(
 					"Error implementar pagina de error: " + e.getMessage());
