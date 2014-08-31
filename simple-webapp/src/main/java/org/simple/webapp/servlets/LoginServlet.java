@@ -59,6 +59,9 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("userNotFound", true);
 			response.sendRedirect("main.jsp");
 		} else {
+			if(currentUser.isAdmin()){
+				session.setAttribute("isAdmin", true);
+			}
 			response.sendRedirect("user.jsp");
 		}
 
