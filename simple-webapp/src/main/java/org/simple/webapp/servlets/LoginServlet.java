@@ -18,6 +18,7 @@ import org.simple.webhandler.WebHandler;
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -31,28 +32,19 @@ public class LoginServlet extends HttpServlet {
 		User currentUser = null;
 		email = request.getParameter("email");
 		password = request.getParameter("password");
-		boolean searchingUser = true;
-		int i = 1;
 		try {
-			while (searchingUser) {
-				users = webHandler.getListUsers(i); // modificar webHandler
-				if (users == null || users.isEmpty()) {
-					searchingUser = false;
+			users = webHandler.getListUsers(); // modificar webHandler
+			for (User u : users) {
+				if (u.getEmail().equals(email)
+						&& u.getPassword().equals(password)) {
+					currentUser = u;
+					session.setAttribute("currentUser", currentUser);
 					break;
 				}
-				for (User u : users) {
-					if (u.getEmail().equals(email)
-							&& u.getPassword().equals(password)) {
-						currentUser = u;
-						session.setAttribute("currentUser", currentUser);
-						searchingUser = false;
-						break;
-					}
-				}
-				i++;
 			}
-		}catch(CouldNotFinishOperationException e) {
-			response.getWriter().write("Error implementar pagina de error: "+ e.getMessage());
+		} catch (CouldNotFinishOperationException e) {
+			response.getWriter().write(
+					"Error implementar pagina de error: " + e.getMessage());
 		}
 		if (currentUser == null) {
 			session.setAttribute("userNotFound", true);

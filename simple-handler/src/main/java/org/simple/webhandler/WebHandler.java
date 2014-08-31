@@ -17,7 +17,6 @@ import org.simple.persistence.ManagerDAO;
 import org.simple.persistence.UserDAO;
 
 public class WebHandler {
-	public static final int MAX_USERS_PER_PAGE = 20;
 	private static WebHandler instance;
 	private UserDAO ud;
 	private ManagerDAO md;
@@ -41,32 +40,20 @@ public class WebHandler {
 		this.ld = new LanguageDAO();
 	}
 
-	public List<User> search(String filter, int page)throws CouldNotFinishOperationException {
+	public List<User> search(String filter)throws CouldNotFinishOperationException {
 		try {
-			if(users==null)
 			users = ud.search(filter);
-			if (users.size() > (MAX_USERS_PER_PAGE * page)) {
-				return users.subList((page * MAX_USERS_PER_PAGE)
-						- MAX_USERS_PER_PAGE, 20 * MAX_USERS_PER_PAGE);
-			} else {
-				return users;
-			}
+			return users;
 		} catch (ObjectNotFoundException e) {
 			throw new CouldNotFinishOperationException("search user fail");
 		}
 	}
 
-	public List<User> getListUsers(int page)
+	public List<User> getListUsers()
 			throws CouldNotFinishOperationException {
 		try {
-			if(users==null)
 			users = ud.getAll();
-			if (users.size() > (MAX_USERS_PER_PAGE * page)) {
-				return users.subList((page * MAX_USERS_PER_PAGE)
-						- MAX_USERS_PER_PAGE, 20 * MAX_USERS_PER_PAGE);
-			} else {
-				return users;
-			}
+			return users;
 		} catch (ObjectNotFoundException e) {
 			throw new CouldNotFinishOperationException("Get user list fail");
 		}
@@ -109,4 +96,6 @@ public class WebHandler {
 			throw new CouldNotFinishOperationException("Save language fail");
 		}
 	}
+
+	
 }

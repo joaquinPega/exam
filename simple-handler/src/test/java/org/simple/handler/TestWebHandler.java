@@ -17,7 +17,7 @@ public class TestWebHandler extends TestCase {
 
 	public void testGetListUsers() {
 		WebHandler wh = WebHandler.getInstance();
-		List<User> users = wh.getListUsers(1);
+		List<User> users = wh.getListUsers();
 		for(User u : users){
 			System.out.println(u.getName());
 		}
