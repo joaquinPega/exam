@@ -8,6 +8,7 @@ import org.simple.exceptions.ObjectNotFoundException;
 import org.simple.model.Language;
 import org.simple.model.Manager;
 import org.simple.model.User;
+import org.simple.persistence.GenericDAO;
 import org.simple.persistence.LanguageDAO;
 import org.simple.persistence.ManagerDAO;
 import org.simple.persistence.UserDAO;
@@ -21,9 +22,9 @@ import org.simple.persistence.UserDAO;
  */
 public class WebHandler {
 	private static WebHandler instance;
-	private UserDAO ud;
-	private ManagerDAO md;
-	private LanguageDAO ld;
+	private GenericDAO<User> ud;
+	private GenericDAO<Manager> md;
+	private GenericDAO<Language> ld;
 	private List<User> users = null;
 	private List<Language> languages = null;
 	private List<Manager> managers = null;

@@ -7,7 +7,7 @@
 		<id name="id" type="long" column="id">
 			<generator class="native" />
 		</id>
-		<property name="email" length="200" type="java.lang.String">
+		<property name="email" length="200" not-null="true" type="java.lang.String">
 			<column name="EMAIL" />		
 		</property>
 		<property name="company" type="java.lang.String">

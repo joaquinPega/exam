@@ -1,8 +1,8 @@
 package org.simple.model;
 
-/**
+/**Model class of the manager
  * 
- * @author Joaquin Pega (joaquin.pega@globant.com)
+ * @author Joaquin Pega (joaquin.pega@globant.com); Artiom Amerhanov (artiom.amerhanov@globant.com)
  *
  */
 public class Manager {

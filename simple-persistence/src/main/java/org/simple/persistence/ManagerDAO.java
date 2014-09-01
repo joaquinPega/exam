@@ -4,26 +4,17 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.simple.exceptions.ObjectDuplicateException;
 import org.simple.exceptions.ObjectNotFoundException;
-import org.simple.exceptions.StartDataBaseException;
 import org.simple.model.Manager;
+/**
+ * @see GenericDAO
+ * @author joaquin.pega; Artiom Amerhanov (artiom.amerhanov@globant.com)
+ *
+ */
+public class ManagerDAO extends HibernateOperations implements GenericDAO<Manager> {
 
-public class ManagerDAO implements GenericDAO<Manager> {
 
-	private Session sesion; 
-    private Transaction tx;
-    
-    private void startOperation() throws StartDataBaseException {
-		try {
-			sesion = HibernateUtil.getSessionFactory().openSession();
-			tx = sesion.beginTransaction();
-		} catch (ExceptionInInitializerError e) {
-			throw new StartDataBaseException(e.getMessage());
-		}
-	}
 	@Override
 	public void save(Manager t) throws ObjectDuplicateException {
 		this.startOperation();

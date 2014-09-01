@@ -2,7 +2,11 @@ package org.simple.persistence;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
-
+/**
+ * Hibernate default builder
+ * @author joaquin.pega ; Artiom Amerhanov (artiom.amerhanov@globant.com)
+ *
+ */
 @SuppressWarnings("deprecation")
 public class HibernateUtil {
     private static final SessionFactory sessionFactory;
@@ -13,8 +17,6 @@ public class HibernateUtil {
             // config file.
             sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
         } catch (Throwable ex) {
-            // Log the exception. 
-           // System.err.println("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError("Initial SessionFactory creation failed: " + ex.getMessage());
         }
     }
