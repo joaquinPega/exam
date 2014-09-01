@@ -12,25 +12,22 @@
 		<a href="main.jsp" id="logout">Logout</a>
 	</div>
 	<h1>Please add new user:</h1>
-	<table>
-		<tr>
-			<th>Name:<input type="text" id="username" class="inputBox"><br>
-				<br></th>
-
-			<th>Company:<input type="text" id="company" class="inputBox"><br>
-				<br></th>
-			<th>Job title:<input type="text" id="job" class="inputBox"><br>
-				<br></th>
-			<th>E-mail:<input type="text" id="email" class="inputBox"><br>
-				<br></th>
-		</tr>
-
-
-
-	</table>
+	<center>
+		<table>
+			<tr>
+				<th>Name:<input type="text" id="username" class="inputBox"><br>
+					<br></th>
+				<th>Company:<input type="text" id="company" class="inputBox"><br>
+					<br></th>
+				<th>Job title:<input type="text" id="job" class="inputBox"><br>
+					<br></th>
+				<th>E-mail:<input type="text" id="email" class="inputBox"><br>
+					<br></th>
+			</tr>
+		</table>
+	</center>
 	<center>
 		<input type="Submit" id="add" value="Add user" method="post">
 	</center>
-
 </body>
 </html>
