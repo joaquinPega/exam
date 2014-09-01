@@ -3,7 +3,7 @@ package org.simple.exceptions;
 
 /**
  * 
- * @author Joaquin Pega
+ * @author Joaquin Pega ; Artiom Amerhanov (artiom.amerhanov@globant.com)
  * 
  *
  */
@@ -15,7 +15,7 @@ public class CouldNotFinishOperationException extends RuntimeException{
 
 	/**
 	 * 
-	 * @param arg0
+	 * @param arg0 message of the exception
 	 */
 	public CouldNotFinishOperationException(String arg0) {
 		super(arg0);

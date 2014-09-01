@@ -15,7 +15,7 @@ import org.simple.model.Manager;
 import org.simple.model.User;
 import org.simple.webhandler.WebHandler;
 
-/**
+/**Starts the session and save the currentUser
  * Servlet implementation class LoginServlet
  */
 public class LoginServlet extends HttpServlet {
@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 		try {
 			languages = webHandler.getListLanguages();
 			managers = webHandler.getListManagers();
-			users = webHandler.getListUsers(); // modificar webHandler
+			users = webHandler.getListUsers(); 
 			for (User u : users) {
 				if (u.getEmail().equals(email)
 						&& u.getPassword().equals(password)) {

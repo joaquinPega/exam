@@ -43,12 +43,12 @@ public class updateDeleteServlet extends HttpServlet {
 					session.setAttribute("users", users);
 					resp.sendRedirect("admin.jsp");
 				} catch (CouldNotFinishOperationException e) {
-					resp.getWriter().write("EROOROROR: " + e.getMessage());
+					resp.getWriter().write("ERROR: " + e.getMessage());
 				}
 			}
 		} else {
 		
-			resp.sendRedirect("modify-user-admin.jsp");
+			resp.sendRedirect("modify-user-admin.jsp?id="+req.getParameter("id"));
 		}
 	}
 

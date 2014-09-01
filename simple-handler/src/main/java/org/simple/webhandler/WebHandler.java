@@ -14,9 +14,9 @@ import org.simple.persistence.ManagerDAO;
 import org.simple.persistence.UserDAO;
 
 
-/**
+/**Business logic of the aplication
  * 
- * @author Joaquin Pega 2014 <joaquin.pega@globant.com>
+ * @author Joaquin Pega 2014 <joaquin.pega@globant.com> ; Artiom Amerhanov (artiom.amerhanov@globant.com)
  * 
  *
  */
@@ -29,7 +29,7 @@ public class WebHandler {
 	private List<Language> languages = null;
 	private List<Manager> managers = null;
 
-	/**
+	/**Singleton
 	 * 
 	 * @return Instancia de WebHandler
 	 */
