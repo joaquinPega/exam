@@ -27,7 +27,7 @@ List<Language> languages=(List<Language>)session.getAttribute("languages");
 					<%
 							for (int i = 0; i < managers.size(); i++) {
 						%>
-						<option value="<%=managers.get(i).getName()%>"><%=managers.get(i).getName()%></option>
+						<option value="<%=managers.get(i).getId()%>"><%=managers.get(i).getName()%></option>
 						<%
 							}
 						%>
@@ -37,11 +37,12 @@ List<Language> languages=(List<Language>)session.getAttribute("languages");
 					<%
 							for (int i = 0; i < languages.size(); i++) {
 						%>
-						<option value="<%=languages.get(i).getName()%>"><%=languages.get(i).getName()%></option>
+						<option value="<%=languages.get(i).getId()%>"><%=languages.get(i).getName()%></option>
 						<%
 							}
 						%>
 				</select><br>
+		Password:<input type="text" name="password"> <br>
 		<input type="submit" value="apply">
 	</form>
 </body>

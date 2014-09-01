@@ -28,16 +28,16 @@ public class ChangeUserServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		WebHandler webHandler = WebHandler.getInstance();
 		String newEmail, newExperience;
-		String newLanguage;
+		Long newLanguage;
 		newEmail = req.getParameter("email");
 		newExperience = req.getParameter("newExperience");
-		newLanguage = req.getParameter("language");
+		newLanguage = Long.parseLong(req.getParameter("language"));
 		List<User> users = (List<User>) session.getAttribute("users");
 		List<Language> languages = (List<Language>) session.getAttribute("languages");
 		User currentUser = (User) session.getAttribute("currentUser");
 		Language selectedLanguage = null;
 		for (Language l : languages) {
-			if (l.getName().equals(newLanguage)) {
+			if (l.getId()==newLanguage) {
 				selectedLanguage = l;
 				break;
 			}

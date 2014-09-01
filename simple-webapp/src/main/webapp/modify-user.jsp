@@ -36,7 +36,7 @@
 						<%
 							for (int i = 0; i < languages.size(); i++) {
 						%>
-						<option value="<%=languages.get(i).getName()%>"><%=languages.get(i).getName()%></option>
+						<option value="<%=languages.get(i).getId()%>"><%=languages.get(i).getName()%></option>
 						<%
 							}
 						%>
