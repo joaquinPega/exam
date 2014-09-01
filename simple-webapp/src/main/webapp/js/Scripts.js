@@ -21,8 +21,8 @@ function validateEmail() {
 }
 function validateEmail2() {
 	var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{1,200}$/;
-	var email = document.forms["modifyForm"]["email"].value;
-	var password = document.forms["modifyForm"][ "password" ].value;
+	var email = document.forms["modifyForm2"]["email"].value;
+	var password = document.forms["modifyForm2"][ "password" ].value;
 	if (!emailPattern.test(email)) {
 		alert("Wrong mail");
 		return emailPattern.test(email);
@@ -36,3 +36,4 @@ function validateEmail2() {
 		return false;
 	}
 }
+

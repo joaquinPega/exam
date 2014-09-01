@@ -25,7 +25,9 @@
 	margin-left:1%;
 }
 
-
+#p1{
+    cursor:pointer;
+}
 h1 {
 	text-align: center;
 }

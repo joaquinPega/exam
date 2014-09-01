@@ -3,6 +3,7 @@
 <%@page import="org.simple.model.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%//TODO: el javascript para validar el email %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,8 +20,8 @@
 	<p align="center">
 		<i><%=((User) session.getAttribute("currentUser")).getName()%></i>
 	</p>
-
-	<form name="modifyForm" action="changeUser" method="post" onsubmit="return validateEmail2();">
+	<div id="modifyForm">
+	<form name="modifyForm2" id="modifyForm2" action="changeUser" method="post" onsubmit="return validateEmail2();">
 		<table>
 			<%
 				List<Language> languages = (List<Language>) session.getAttribute("languages");
@@ -49,6 +50,7 @@
 			<input type="submit" name="submit" value="Submit changes">
 		</center>
 	</form>
+	</div>
 	<center>
 	<form action="user.jsp">
 		<input type="submit" value="cancel">
