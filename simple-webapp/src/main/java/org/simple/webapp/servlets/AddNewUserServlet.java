@@ -75,7 +75,7 @@ public class AddNewUserServlet extends HttpServlet{
 			newUser.setExperience(experience);
 			try{
 				webHandler.saveUser(newUser);
-				users = webHandler.getListUsers();
+				users.add(newUser);
 				session.setAttribute("users", users);
 				resp.sendRedirect("admin.jsp");
 			}catch(CouldNotFinishOperationException e){
