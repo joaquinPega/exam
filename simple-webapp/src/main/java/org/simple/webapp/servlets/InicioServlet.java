@@ -25,7 +25,7 @@ public class InicioServlet extends HttpServlet {
 			throws ServletException, IOException {
 		WebHandler wh = WebHandler.getInstance();
 		try {
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 100; i++) {
 				Manager m = new Manager();
 				Language l = new Language();
 				User u = new User();
