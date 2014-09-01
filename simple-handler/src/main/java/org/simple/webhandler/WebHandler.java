@@ -116,7 +116,7 @@ public class WebHandler {
 		try {
 			ud.update(user);
 		} catch (ObjectNotFoundException e) {
-			throw new CouldNotFinishOperationException("Update user fail");
+			throw new CouldNotFinishOperationException("Update user fail "+e.getMessage());
 		}
 	}
 

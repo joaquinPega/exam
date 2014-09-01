@@ -31,7 +31,7 @@
 
 				<th>Experience:<input type="text" name="newExperience"
 					class="inputBox"><br> <br></th>
-				<th>Language:<select name="languageList">
+				<th>Language:<select name="language">
 						<%
 							for (int i = 0; i < languages.size(); i++) {
 						%>

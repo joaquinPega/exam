@@ -3,30 +3,34 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 27/08/2014 12:14:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.simple.model.User" table="USER">
-        <id name="email" length="200" type="java.lang.String">
-            <column name="EMAIL" />
-            <generator class="assigned" />
-        </id>
-        <property name="company"    type="java.lang.String">
-            <column name="COMPANY" not-null="true" length="50"/>
-        </property>
-        <property name="jobTitle" type="java.lang.String">
-            <column name="JOBTITLE" not-null="true" length="50"/>
-        </property>
-        <property name="name" type="java.lang.String">
-            <column name="NAME" not-null="true" length="50" />
-        </property>
-        <property name="password"  type="java.lang.String">
-            <column name="PASSWORD" not-null="true" length="50" />
-        </property>
-        <many-to-one name="manager" class="org.simple.model.Manager" column = "MANAGER" not-null="true" fetch="join"/>
-        <property name="experience" type="java.lang.String">
-            <column name="EXPERIENCE" sql-type="text" />
-        </property>
-        <many-to-one name="language" class="org.simple.model.Language" column="LANGUAGE" not-null="true" fetch="join"/>
-        <property name="admin" type="boolean">
-            <column name="ADMIN" />
-        </property>
-    </class>
+	<class name="org.simple.model.User" table="USER">
+		<id name="id" type="long" column="id">
+			<generator class="native" />
+		</id>
+		<property name="email" length="200" type="java.lang.String">
+			<column name="EMAIL" />		
+		</property>
+		<property name="company" type="java.lang.String">
+			<column name="COMPANY" not-null="true" length="50" />
+		</property>
+		<property name="jobTitle" type="java.lang.String">
+			<column name="JOBTITLE" not-null="true" length="50" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" not-null="true" length="50" />
+		</property>
+		<property name="password" type="java.lang.String">
+			<column name="PASSWORD" not-null="true" length="50" />
+		</property>
+		<many-to-one name="manager" class="org.simple.model.Manager"
+			column="MANAGER" not-null="true" fetch="join" />
+		<property name="experience" type="java.lang.String">
+			<column name="EXPERIENCE" sql-type="text" />
+		</property>
+		<many-to-one name="language" class="org.simple.model.Language"
+			column="LANGUAGE" not-null="true" fetch="join" />
+		<property name="admin" type="boolean">
+			<column name="ADMIN" />
+		</property>
+	</class>
 </hibernate-mapping>

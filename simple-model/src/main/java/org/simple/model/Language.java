@@ -6,6 +6,7 @@ package org.simple.model;
  */
 public class Language {
 	private String name;
+	private long id;
 	
 	public Language(){
 		
@@ -20,6 +21,12 @@ public class Language {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 }
