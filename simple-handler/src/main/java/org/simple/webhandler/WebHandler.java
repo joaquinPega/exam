@@ -1,9 +1,5 @@
 package org.simple.webhandler;
 
-/*
- * Meter String a tabla en la cual el servlet busca cual pagina devolver o mensaje mostrar
- */
-
 import java.util.List;
 
 import org.simple.exceptions.CouldNotFinishOperationException;
@@ -16,6 +12,13 @@ import org.simple.persistence.LanguageDAO;
 import org.simple.persistence.ManagerDAO;
 import org.simple.persistence.UserDAO;
 
+
+/**
+ * 
+ * @author Joaquin Pega 2014 <joaquin.pega@globant.com>
+ * 
+ *
+ */
 public class WebHandler {
 	private static WebHandler instance;
 	private UserDAO ud;
@@ -25,6 +28,10 @@ public class WebHandler {
 	private List<Language> languages = null;
 	private List<Manager> managers = null;
 
+	/**
+	 * 
+	 * @return Instancia de WebHandler
+	 */
 	public static WebHandler getInstance() {
 		if (instance == null) {
 			instance = new WebHandler();
@@ -36,13 +43,23 @@ public class WebHandler {
 		startAplication();
 	}
 
-	private void startAplication()throws CouldNotFinishOperationException {
+	/**
+	 * 
+	 * @throws CouldNotFinishOperationException
+	 */
+	private void startAplication() throws CouldNotFinishOperationException {
 		this.ud = new UserDAO();
 		this.md = new ManagerDAO();
 		this.ld = new LanguageDAO();
 	}
 
-	public List<User> search(String filter)throws CouldNotFinishOperationException {
+	/**
+	 * @param filter hace filter de la busqueda
+	 * @return la lista de usuarios
+	 * @throws CouldNotFinishOperationException
+	 */
+	public List<User> search(String filter)
+			throws CouldNotFinishOperationException {
 		try {
 			users = ud.search(filter);
 			return users;
@@ -51,8 +68,12 @@ public class WebHandler {
 		}
 	}
 
-	public List<User> getListUsers()
-			throws CouldNotFinishOperationException {
+	/***
+	 * 
+	 * @return
+	 * @throws CouldNotFinishOperationException
+	 */
+	public List<User> getListUsers() throws CouldNotFinishOperationException {
 		try {
 			users = ud.getAll();
 			return users;
@@ -61,6 +82,11 @@ public class WebHandler {
 		}
 	}
 
+	/***
+	 * 
+	 * @param user
+	 * @throws CouldNotFinishOperationException
+	 */
 	public void deleteUser(User user) throws CouldNotFinishOperationException {
 		try {
 			ud.delete(user);
@@ -69,6 +95,10 @@ public class WebHandler {
 		}
 	}
 
+	/**
+	 * 
+	 * @param user
+	 */
 	public void saveUser(User user) {
 		try {
 			ud.save(user);
@@ -77,6 +107,11 @@ public class WebHandler {
 		}
 	}
 
+	/**
+	 * 
+	 * @param user
+	 * @throws CouldNotFinishOperationException
+	 */
 	public void updateUser(User user) throws CouldNotFinishOperationException {
 		try {
 			ud.update(user);
@@ -84,30 +119,54 @@ public class WebHandler {
 			throw new CouldNotFinishOperationException("Update user fail");
 		}
 	}
-	public void saveManager(Manager manager){
-		try{
+
+	/**
+	 * 
+	 * @param manager
+	 */
+	public void saveManager(Manager manager) {
+		try {
 			md.save(manager);
-		}catch(ObjectDuplicateException e){
+		} catch (ObjectDuplicateException e) {
 			throw new CouldNotFinishOperationException("Save manager fail");
 		}
 	}
-	public void saveLanguage(Language language){
-		try{
+
+	/***
+	 * 
+	 * @param language
+	 */
+	public void saveLanguage(Language language) {
+		try {
 			ld.save(language);
-		}catch(ObjectDuplicateException e){
+		} catch (ObjectDuplicateException e) {
 			throw new CouldNotFinishOperationException("Save language fail");
 		}
 	}
-	public List<Language> getListLanguages()throws CouldNotFinishOperationException{
-		try {			
+
+	/**
+	 * 
+	 * @return
+	 * @throws CouldNotFinishOperationException
+	 */
+	public List<Language> getListLanguages()
+			throws CouldNotFinishOperationException {
+		try {
 			languages = ld.getAll();
 			return languages;
 		} catch (ObjectNotFoundException e) {
 			throw new CouldNotFinishOperationException("Get user list fail");
 		}
 	}
-	public List<Manager> getListManagers()throws CouldNotFinishOperationException{
-		try {			
+
+	/**
+	 * 
+	 * @return
+	 * @throws CouldNotFinishOperationException
+	 */
+	public List<Manager> getListManagers()
+			throws CouldNotFinishOperationException {
+		try {
 			managers = md.getAll();
 			return managers;
 		} catch (ObjectNotFoundException e) {
