@@ -1,5 +1,5 @@
 function validateEmail() {
-	var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{1,200}$/;
+	var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,200}$/;
 	var email = document.forms["loginForm"]["email"].value;
 	var password = document.forms["loginForm"]["password"].value;
 	if (!emailPattern.test(email)) {

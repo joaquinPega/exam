@@ -9,17 +9,42 @@ import junit.framework.TestCase;
 public class TestUserDAO extends TestCase {
 
 	public void testSave() {
+		UserDAO ud = new UserDAO();
+		User u = new User();
+		u.setName("Joaquin");
+		u.setAdmin(true);
+		u.setEmail("joaquin@pega.com");
+		u.setCompany("Globant");
+		u.setExperience("Nothing");
+		u.setJobTitle("Java developer");
+		u.setPassword("asd");
+		ud.save(u);
 	}
 
 	public void testUpdate() {
+		UserDAO ud = new UserDAO();
+		List<User> users = ud.getAll();
+		User user = users.get(0);
+		user.setName("pepito");
+		user.setCompany("compania");
+		user.setEmail("emailnuevo@nuevo.com");
+		user.setExperience("nuevaExperiencia");
+		user.setJobTitle("nuevo jobTitle");
 	}
 
 	public void testDelete() {
+		UserDAO ud = new UserDAO();
+		List<User> users = ud.getAll();
+		ud.delete(users.get(0));
 	}
 	
 	public void testSearch() {
 		UserDAO ud = new UserDAO();
-		System.out.println(ud.search("joaquin"));
+		List<User> users = ud.search("joaquin");
+		for(User u : users){
+			System.out.println(u.getName());
+		}
+		
 	}
 
 	public void testGetAll() {
