@@ -11,6 +11,18 @@
 <title>Administrator page</title>
 </head>
 <body>
+<script>
+function returncheckCorrect() {
+	var r = confirm("Delete User?");
+	if (r == true) {
+	alert("true");
+	return true;
+	} else {
+
+	return false;
+	}
+}
+</script>
 
 	<%
 		List<User> users = (List<User>) session.getAttribute("users");
@@ -83,7 +95,7 @@
 						<td><input type="submit" name="id"
 							value="<%=users.get(j).getId()%>" /></td>
 						<td><input type="submit" name="idDel"
-							value="<%=users.get(j).getId()%>" onsubmit="deleteUser()" /></td>
+							value="<%=users.get(j).getId()%>" onsubmit="deleteUser()" onClick="return confirm('Are you sure you want to continue')"/></td>
 
 					</tr>
 					<%
