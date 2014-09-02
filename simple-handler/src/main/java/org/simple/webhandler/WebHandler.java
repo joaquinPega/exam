@@ -13,10 +13,11 @@ import org.simple.persistence.LanguageDAO;
 import org.simple.persistence.ManagerDAO;
 import org.simple.persistence.UserDAO;
 
-
-/**Business logic of the aplication
+/**
+ * Business logic of the aplication
  * 
- * @author Joaquin Pega 2014 <joaquin.pega@globant.com> ; Artiom Amerhanov (artiom.amerhanov@globant.com)
+ * @author Joaquin Pega 2014 <joaquin.pega@globant.com> ; Artiom Amerhanov
+ *         (artiom.amerhanov@globant.com)
  * 
  *
  */
@@ -29,7 +30,8 @@ public class WebHandler {
 	private List<Language> languages = null;
 	private List<Manager> managers = null;
 
-	/**Singleton
+	/**
+	 * Singleton
 	 * 
 	 * @return Instancia de WebHandler
 	 */
@@ -55,7 +57,8 @@ public class WebHandler {
 	}
 
 	/**
-	 * @param filter hace filter de la busqueda
+	 * @param filter
+	 *            hace filter de la busqueda
 	 * @return la lista de usuarios
 	 * @throws CouldNotFinishOperationException
 	 */
@@ -70,8 +73,9 @@ public class WebHandler {
 	}
 
 	/***
+	 * Retorna la lista de usuarios
 	 * 
-	 * @return
+	 * @return users
 	 * @throws CouldNotFinishOperationException
 	 */
 	public List<User> getListUsers() throws CouldNotFinishOperationException {
@@ -84,6 +88,7 @@ public class WebHandler {
 	}
 
 	/***
+	 * Eliminar usuario
 	 * 
 	 * @param user
 	 * @throws CouldNotFinishOperationException
@@ -97,6 +102,7 @@ public class WebHandler {
 	}
 
 	/**
+	 * Guardar usuario
 	 * 
 	 * @param user
 	 */
@@ -109,6 +115,7 @@ public class WebHandler {
 	}
 
 	/**
+	 * Guardar modificaciones de usuario
 	 * 
 	 * @param user
 	 * @throws CouldNotFinishOperationException
@@ -117,11 +124,13 @@ public class WebHandler {
 		try {
 			ud.update(user);
 		} catch (ObjectNotFoundException e) {
-			throw new CouldNotFinishOperationException("Update user fail "+e.getMessage());
+			throw new CouldNotFinishOperationException("Update user fail "
+					+ e.getMessage());
 		}
 	}
 
 	/**
+	 * Guardar manager
 	 * 
 	 * @param manager
 	 */
@@ -134,6 +143,7 @@ public class WebHandler {
 	}
 
 	/***
+	 * Guardar idioma
 	 * 
 	 * @param language
 	 */
@@ -146,8 +156,9 @@ public class WebHandler {
 	}
 
 	/**
+	 * Guardar lista de idiomas
 	 * 
-	 * @return
+	 * @return languages
 	 * @throws CouldNotFinishOperationException
 	 */
 	public List<Language> getListLanguages()
@@ -161,8 +172,9 @@ public class WebHandler {
 	}
 
 	/**
+	 * Retornar lista de managers
 	 * 
-	 * @return
+	 * @return managers
 	 * @throws CouldNotFinishOperationException
 	 */
 	public List<Manager> getListManagers()
