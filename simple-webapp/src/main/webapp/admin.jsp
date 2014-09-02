@@ -95,7 +95,7 @@ function returncheckCorrect() {
 						<td><input type="submit" name="id"
 							value="<%=users.get(j).getId()%>" /></td>
 						<td><input type="submit" name="idDel"
-							value="<%=users.get(j).getId()%>" onsubmit="deleteUser()" onClick="return confirm('Are you sure you want to continue')"/></td>
+							value="<%=users.get(j).getId()%>" onClick="return confirm('Are you sure you want to continue')"/></td>
 
 					</tr>
 					<%

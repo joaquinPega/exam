@@ -6,7 +6,7 @@ package org.simple.model;
  * @author Joaquin Pega (joaquin.pega@globant.com); Artiom Amerhanov (artiom.amerhanov@globant.com)
  *
  */
-public class User {
+public class User implements Comparable<User> {
 
 	private String name;
 	private String company;
@@ -102,5 +102,11 @@ public class User {
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	public int compareTo(User arg0) {
+		// TODO Auto-generated method stub
+		return name.compareTo(arg0.name);
+	}
+
 	
 }

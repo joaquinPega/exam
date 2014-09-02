@@ -36,7 +36,7 @@ public class InicioServlet extends HttpServlet {
 				u.setName("Name"+i);
 				u.setAdmin(false);
 				u.setCompany("Company"+i);
-				u.setEmail("user@user.com"+i);
+				u.setEmail("user"+i+"@user.com");
 				u.setExperience("Nothing");
 				u.setJobTitle("Jave developer");
 				u.setPassword("asd");
