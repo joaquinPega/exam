@@ -33,8 +33,8 @@
 		if(selectedPage<=0){
 			selectedPage=0;
 		}
-		if(selectedPage>=k-1){
-			selectedPage =k-1;
+		if(selectedPage>=k){
+			selectedPage =k;
 		}
 			
 			}
@@ -43,12 +43,12 @@
 		return currentPage * 20;
 	}
 
-	public int getLastPage(int currentPage, int m, boolean isOnePage) {
+	public int getLastPage(int currentPage, int m, boolean isOnePage,int k) {
 		if (isOnePage) {
 			return m;
 		}
-		if (m == 0)
-			return currentPage * 20 + 20;
+		if (currentPage ==k)
+			return currentPage * 20 + m;
 		return currentPage * 20 + 20;
 	}%>
 
@@ -72,7 +72,7 @@
 						<th>delete:</th>
 					</tr>
 					<%
-						for (int j = getPageStart(selectedPage); j < getLastPage(selectedPage , r,isOnePage); j++) {
+						for (int j = getPageStart(selectedPage); j < getLastPage(selectedPage , r,isOnePage,k); j++) {
 					%>
 					<tr>
 
@@ -91,8 +91,8 @@
 					%>
 				</table>
 			</form>
-			<a href="admin.jsp?selectedPage=<%=(int)selectedPage--%>">prevPag</a>
-			<a href="admin.jsp?selectedPage=<%=(int)selectedPage++%>">sigPag</a>
+			<a href="nextPage?id=0">--</a>
+			<a href="nextPage?id=1">++</a>
 		</center>
 		<br>
 		<center>
