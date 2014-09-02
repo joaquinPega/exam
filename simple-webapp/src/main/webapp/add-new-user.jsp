@@ -52,7 +52,7 @@ List<Language> languages=(List<Language>)session.getAttribute("languages");
 							}
 						%>
 				</select><br>
-		Experience:<input type="text" name="experience"><br>
+		Experience:<input type="text" name="experience" id="experience" onkeyup="textCounter(this,'counter',500)"><br>
 		Language:<select name="language">
 					<%
 							for (int i = 0; i < languages.size(); i++) {
@@ -66,5 +66,16 @@ List<Language> languages=(List<Language>)session.getAttribute("languages");
 		<input type="submit" value="apply">
 		</center>
 	</form>
+	<script>
+	function textCounter(field, field2, maxlimit) {
+        var countfield = document.getElementById(field2);
+        if (field.value.length > maxlimit) {
+                field.value = field.value.substring(0, maxlimit);
+                return false;
+        } else {
+                countfield.value = maxlimit - field.value.length;
+        }
+	} 
+	</script>
 </body>
 </html>

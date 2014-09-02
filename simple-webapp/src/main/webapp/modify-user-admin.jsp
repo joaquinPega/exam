@@ -56,7 +56,7 @@ for(User u: users){
 							}
 						%>
 				</select><br>
-		Experience:<input type="text" name="experience" value="<%=user.getExperience()%>"><br>
+		Experience:<input type="text" name="experience" id="experience" onkeyup="textCounter(this,'counter',500)" value="<%=user.getExperience()%>"><br>
 		Language:<select name="language">
 					<%
 							for (int i = 0; i < languages.size(); i++) {
@@ -69,5 +69,16 @@ for(User u: users){
 		Password:<input type="text" name="password" value="<%=user.getPassword()%>"> <br>
 		<input type="submit" value="apply">
 	</form>
+	<script>
+	function textCounter(field, field2, maxlimit) {
+        var countfield = document.getElementById(field2);
+        if (field.value.length > maxlimit) {
+                field.value = field.value.substring(0, maxlimit);
+                return false;
+        } else {
+                countfield.value = maxlimit - field.value.length;
+        }
+	} 
+	</script>
 </body>
 </html>
