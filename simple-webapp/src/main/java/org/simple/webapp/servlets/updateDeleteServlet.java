@@ -13,12 +13,25 @@ import org.simple.exceptions.CouldNotFinishOperationException;
 import org.simple.model.User;
 import org.simple.webhandler.WebHandler;
 
+/**
+ * For the table update delete buttons
+ * @author Joaquin Pega (joaquin.pega@globant.com); Artiom Amerhanov (artiom.amerhanov@globant.com)
+ *
+ */
 public class updateDeleteServlet extends HttpServlet {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		doGet(req, resp);
+	}
+
 
 	@SuppressWarnings("unchecked")
 	@Override

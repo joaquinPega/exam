@@ -12,13 +12,25 @@ import javax.servlet.http.HttpSession;
 import org.simple.exceptions.CouldNotFinishOperationException;
 import org.simple.model.User;
 import org.simple.webhandler.WebHandler;
-
+/**
+ * Reload the users lists
+ * @author Joaquin Pega (joaquin.pega@globant.com); Artiom Amerhanov (artiom.amerhanov@globant.com)
+ *
+ */
 public class SearchServlet extends HttpServlet{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		doGet(req, resp);
+	}
+
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)

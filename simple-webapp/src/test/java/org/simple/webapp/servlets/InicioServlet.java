@@ -12,7 +12,11 @@ import org.simple.model.Language;
 import org.simple.model.Manager;
 import org.simple.model.User;
 import org.simple.webhandler.WebHandler;
-
+/**
+ * Start some data base information
+ * @author Joaquin Pega (joaquin.pega@globant.com); Artiom Amerhanov (artiom.amerhanov@globant.com)
+ *
+ */
 public class InicioServlet extends HttpServlet {
 
 	/**

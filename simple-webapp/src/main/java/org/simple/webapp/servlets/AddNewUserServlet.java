@@ -14,16 +14,25 @@ import org.simple.model.Language;
 import org.simple.model.Manager;
 import org.simple.model.User;
 import org.simple.webhandler.WebHandler;
-
+/**
+ * Add a new User
+ * @author Joaquin Pega (joaquin.pega@globant.com); Artiom Amerhanov (artiom.amerhanov@globant.com)
+ *
+ */
 public class AddNewUserServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		doPost(req,resp);
+	}
+
+
 	@SuppressWarnings("unchecked")
 	@Override
-	/**
-	 * Servlet de 
-	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		HttpSession session = req.getSession();

@@ -21,6 +21,17 @@ import org.simple.webhandler.WebHandler;
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		
+		doPost(req, resp);
+	}
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

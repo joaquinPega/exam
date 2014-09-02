@@ -14,13 +14,23 @@ import org.simple.model.Language;
 import org.simple.model.Manager;
 import org.simple.model.User;
 import org.simple.webhandler.WebHandler;
-
+/**
+ * Full update to user information
+ * @author Joaquin Pega (joaquin.pega@globant.com); Artiom Amerhanov (artiom.amerhanov@globant.com)
+ *
+ */
 public class ModifyAdminServlet extends HttpServlet{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		doPost(req, resp);
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
