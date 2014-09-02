@@ -91,13 +91,8 @@
 					%>
 				</table>
 			</form>
-<<<<<<< HEAD
 			<a href="admin.jsp?selectedPage=<%=(int)selectedPage--%>">prevPag</a>
 			<a href="admin.jsp?selectedPage=<%=(int)selectedPage++%>">sigPag</a>
-=======
-			<a href="admin.jsp?selectedPage=<%=selectedPage%>">prevPag</a> <a
-				href="admin.jsp?selectedPage=<%=selectedPage%>">sigPag</a>
->>>>>>> e25a6501f2875e9da35a5a4af7bf8d0eb0313786
 		</center>
 		<br>
 		<center>

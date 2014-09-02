@@ -28,9 +28,14 @@ public class SearchServlet extends HttpServlet{
 		String search = req.getParameter("search");
 		List<User> users;
 		try{
-			users = webHandler.search(search);
-			session.setAttribute("users", users);
-			resp.sendRedirect("admin.jsp");
+			if(search.equals("")){
+				users = webHandler.getListUsers();
+			}else{
+				users = webHandler.search(search);
+			}
+				session.setAttribute("users", users);
+			
+				resp.sendRedirect("admin.jsp");
 		}catch(CouldNotFinishOperationException e){
 			resp.getWriter().write("Error "+ e.getMessage());
 		}
