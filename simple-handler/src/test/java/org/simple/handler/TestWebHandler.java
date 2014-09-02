@@ -2,6 +2,8 @@ package org.simple.handler;
 
 import java.util.List;
 
+import org.simple.model.Language;
+import org.simple.model.Manager;
 import org.simple.model.User;
 import org.simple.webhandler.WebHandler;
 
@@ -38,11 +40,22 @@ public class TestWebHandler extends TestCase {
 
 	public void testSaveUser() {
 		WebHandler wh = WebHandler.getInstance();
-		User user = new User();
-		user.setCompany("Globant");
-		user.setEmail("kdkdkd@globant.com");
-		user.setJobTitle("dev");
-		wh.saveUser(user);
+		User u = new User();
+		Manager m;
+		Language l;
+		m = wh.getListManagers().get(0);
+		l = wh.getListLanguages().get(0);
+		u.setId(1);
+		u.setName("Joaquin");
+		u.setAdmin(true);
+		u.setEmail("joaquin@pega.com");
+		u.setCompany("Globant");
+		u.setExperience("Nothing");
+		u.setJobTitle("Java developer");
+		u.setPassword("asd");
+		u.setManager(m);
+		u.setLanguage(l);
+		wh.saveUser(u);
 	}
 
 	public void testUpdateUser() {

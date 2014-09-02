@@ -22,6 +22,7 @@ public class ManagerDAO extends HibernateOperations implements GenericDAO<Manage
 			sesion.save(t);
 			tx.commit();
 		}catch(HibernateException e){
+			tx.rollback();
 			throw new ObjectDuplicateException(e.getMessage());
 		}finally{
 			sesion.close();
@@ -35,6 +36,7 @@ public class ManagerDAO extends HibernateOperations implements GenericDAO<Manage
 			sesion.update(t);
 			tx.commit();
 		}catch(HibernateException e){
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		}finally{
 			sesion.close();
@@ -49,6 +51,7 @@ public class ManagerDAO extends HibernateOperations implements GenericDAO<Manage
 			sesion.delete(t);
 			tx.commit();
 		}catch(HibernateException e){
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		}finally{
 			sesion.close();
@@ -64,6 +67,7 @@ public class ManagerDAO extends HibernateOperations implements GenericDAO<Manage
 			Query query = sesion.createQuery("FROM Manager M WHERE M.name LIKE '"+filter+"'");
 			managers=(List<Manager>)query.list();		
 		}catch(HibernateException e){
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		}finally{
 			sesion.close();
@@ -79,6 +83,7 @@ public class ManagerDAO extends HibernateOperations implements GenericDAO<Manage
 			Query query = sesion.createQuery("FROM Manager");
 			managers=(List<Manager>)query.list();		
 		}catch(HibernateException e){
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		}finally{
 			sesion.close();

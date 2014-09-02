@@ -21,6 +21,7 @@ public class LanguageDAO extends HibernateOperations implements GenericDAO<Langu
 			sesion.save(t);
 			tx.commit();
 		} catch (HibernateException e) {
+			tx.rollback();
 			throw new ObjectDuplicateException(e.getMessage());
 		} finally {
 			sesion.close();
@@ -34,6 +35,7 @@ public class LanguageDAO extends HibernateOperations implements GenericDAO<Langu
 			sesion.update(t);
 			tx.commit();
 		} catch (HibernateException e) {
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		} finally {
 			sesion.close();
@@ -48,6 +50,7 @@ public class LanguageDAO extends HibernateOperations implements GenericDAO<Langu
 			sesion.delete(t);
 			tx.commit();
 		} catch (HibernateException e) {
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		} finally {
 			sesion.close();
@@ -63,6 +66,7 @@ public class LanguageDAO extends HibernateOperations implements GenericDAO<Langu
 			Query query = sesion.createQuery("FROM Language L WHERE L.name LIKE '"+ filter+"'");
 			languages = (List<Language>) query.list();
 		} catch (HibernateException e) {
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		} finally {
 			sesion.close();
@@ -79,6 +83,7 @@ public class LanguageDAO extends HibernateOperations implements GenericDAO<Langu
 			Query query = sesion.createQuery("FROM Language");
 			languages = (List<Language>) query.list();
 		} catch (HibernateException e) {
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		} finally {
 			sesion.close();

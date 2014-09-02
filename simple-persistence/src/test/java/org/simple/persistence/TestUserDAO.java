@@ -58,12 +58,4 @@ public class TestUserDAO extends TestCase {
 		
 	}
 
-	public void testGetAll() {
-		UserDAO ud = new UserDAO();
-		List<User> users=ud.getAll();
-		for(User u : users){
-			System.out.println(u.getName()+"\t"+ u.getManager().getName());
-		}
-	}
-
 }

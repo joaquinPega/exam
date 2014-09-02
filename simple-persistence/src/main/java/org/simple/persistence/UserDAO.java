@@ -22,6 +22,7 @@ public class UserDAO extends HibernateOperations implements GenericDAO<User> {
 			sesion.save(user);
 			tx.commit();
 		}catch(HibernateException e){
+			tx.rollback();
 			throw new ObjectDuplicateException(e.getMessage());
 		}finally{
 			sesion.close();
@@ -36,6 +37,7 @@ public class UserDAO extends HibernateOperations implements GenericDAO<User> {
 			sesion.update(t);
 			tx.commit();
 		}catch(HibernateException e){
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		}finally{
 			sesion.close();
@@ -50,6 +52,7 @@ public class UserDAO extends HibernateOperations implements GenericDAO<User> {
 			sesion.delete(t);
 			tx.commit();
 		}catch(HibernateException e){
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		}finally{
 			sesion.close();
@@ -66,6 +69,7 @@ public class UserDAO extends HibernateOperations implements GenericDAO<User> {
 			Query query = sesion.createQuery("FROM User U WHERE U.name LIKE '"+filter + "' OR U.company LIKE '"+ filter+ "' OR U.experience LIKE '"+filter+"'");
 			usuarios=(List<User>)query.list();		
 		}catch(HibernateException e){
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		}finally{
 			sesion.close();
@@ -81,6 +85,7 @@ public class UserDAO extends HibernateOperations implements GenericDAO<User> {
 			Query query = sesion.createQuery("FROM User");
 			usuarios=(List<User>)query.list();		
 		}catch(HibernateException e){
+			tx.rollback();
 			throw new ObjectNotFoundException(e.getMessage());
 		}finally{
 			sesion.close();
