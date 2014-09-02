@@ -4,9 +4,9 @@
 <hibernate-configuration>
  <session-factory name="">
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.url">jdbc:mysql://localhost/exam</property>
-  <property name="hibernate.connection.username">root</property>
-  <property name="hibernate.connection.password"/>
+  <property name="hibernate.connection.url">jdbc:mysql://GLB-D0148/exam</property>
+  <property name="hibernate.connection.username">prueba</property>
+  <property name="hibernate.connection.password">prueba</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="hibernate.connection.pool_size">1</property>
   <property name="show_sql">true</property>

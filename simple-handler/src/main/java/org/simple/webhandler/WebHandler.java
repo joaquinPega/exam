@@ -57,11 +57,11 @@ public class WebHandler {
 	}
 
 	/**
-	 * @param filter
-	 *            hace filter de la busqueda
+	 * @param filter parametro para la busqueda
 	 * @return la lista de usuarios
 	 * @throws CouldNotFinishOperationException
 	 */
+	
 	public List<User> search(String filter)
 			throws CouldNotFinishOperationException {
 		try {
