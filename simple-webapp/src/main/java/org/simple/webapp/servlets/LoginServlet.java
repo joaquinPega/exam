@@ -1,6 +1,7 @@
 package org.simple.webapp.servlets;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -49,6 +50,7 @@ public class LoginServlet extends HttpServlet {
 					break;
 				}
 			}
+			Collections.sort(users);
 			session.setAttribute("users", users);
 			session.setAttribute("languages", languages);
 			session.setAttribute("managers", managers);
