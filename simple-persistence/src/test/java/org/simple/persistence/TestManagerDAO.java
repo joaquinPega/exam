@@ -44,6 +44,7 @@ public class TestManagerDAO extends TestCase {
 
 	}
 
+	@SuppressWarnings("unused")
 	public void testGetAll() {
 		ManagerDAO md = new ManagerDAO();
 		List<Manager> lista;
