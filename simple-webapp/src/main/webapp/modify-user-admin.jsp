@@ -7,10 +7,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link type="text/css" rel="Stylesheet" href="css/Style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Modify user</title>
 </head>
 <body>
+
+	<div>
+		<a href="logout" id="logout">Logout</a>
+	</div>
+	<center>
+	<h1>User to modify:</h1>
+	</center>
 <script>
 	function validateEmail() {
 		var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,200}$/;
@@ -42,6 +50,7 @@ for(User u: users){
 	}
 }
 %>
+<center>
 <form name="modifyForm" action="modifyAdmin" method="post" onsubmit="return validateEmail();">
 		Name:<input type="text" name="name" value="<%=user.getName()%>"><br>
 		Company:<input type="text" name="company" value="<%=user.getCompany()%>"><br>
@@ -69,6 +78,7 @@ for(User u: users){
 		Password:<input type="text" name="password" value="<%=user.getPassword()%>"> <br>
 		<input type="submit" value="apply">
 	</form>
+	</center>
 	<script>
 	function textCounter(field, field2, maxlimit) {
         var countfield = document.getElementById(field2);
