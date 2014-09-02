@@ -9,6 +9,9 @@ import junit.framework.TestCase;
 public class TestManagerDAO extends TestCase {
 
 	public void testSave() {
+		ManagerDAO manager = new ManagerDAO();
+		
+		
 	}
 
 	public void testUpdate() {

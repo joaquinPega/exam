@@ -4,6 +4,12 @@ import org.simple.exceptions.ObjectNotFoundException;
 import org.simple.model.User;
 import org.simple.persistence.UserDAO;
 
+
+/**
+ * 
+ * @author joaquin.pega
+ *
+ */
 public class DeleteUser implements Runnable{
 	private User user;
 
