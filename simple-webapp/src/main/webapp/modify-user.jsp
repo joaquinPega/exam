@@ -32,6 +32,12 @@
 
 		} 
 	}
+	function validaExperiencia(){
+		var exp = document.forms["modifyForm"]["newExperience"].value;
+		if(exp.length>500){
+			alert("500");
+		}
+	}
 		</script>
 	<div id="modifyForm">
 	<form name="modifyForm" action="changeUser" method="post" onsubmit="return validateEmail();">
@@ -44,7 +50,7 @@
 					<br></th>
 
 				<th>Experience:<input type="text" name="newExperience"
-					class="inputBox"><br> <br></th>
+					class="inputBox" onkeydown="return validaExperiencia()"><br> <br></th>
 				<th>Language:<select name="language">
 						<%
 							for (int i = 0; i < languages.size(); i++) {
