@@ -2,12 +2,13 @@ package org.simple.persistence;
 
 import java.util.List;
 
+import org.junit.Test;
 import org.simple.model.Manager;
 
 import junit.framework.TestCase;
 
 public class TestManagerDAO extends TestCase {
-
+	@Test 
 	public void testSave() {
 		ManagerDAO md = new ManagerDAO();
 		Manager mn = new Manager();
@@ -15,7 +16,7 @@ public class TestManagerDAO extends TestCase {
 		md.save(mn);
 
 	}
-
+	@Test
 	public void testUpdate() {
 		ManagerDAO md = new ManagerDAO();
 		List<Manager> m = md.getAll();
@@ -23,7 +24,7 @@ public class TestManagerDAO extends TestCase {
 		manager.setName("artiom");
 		md.update(manager);
 	}
-
+	@Test
 	public void testDelete() {
 		ManagerDAO md = new ManagerDAO();
 		List<Manager> m = md.getAll();
@@ -34,7 +35,7 @@ public class TestManagerDAO extends TestCase {
 			}
 		}
 	}
-
+	@Test
 	public void testSearch() {
 		ManagerDAO md = new ManagerDAO();
 		List<Manager> m = md.search("Manager1");
@@ -43,8 +44,8 @@ public class TestManagerDAO extends TestCase {
 		}
 
 	}
-
 	@SuppressWarnings("unused")
+	@Test
 	public void testGetAll() {
 		ManagerDAO md = new ManagerDAO();
 		List<Manager> lista;

@@ -1,9 +1,11 @@
 package org.simple.model;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 public class TestUser extends TestCase {
-
+	@Test
 	public void testUser() {
 		User user = new User();
 		user.setName("name");

@@ -2,6 +2,7 @@ package org.simple.handler;
 
 import java.util.List;
 
+import org.junit.Test;
 import org.simple.model.Language;
 import org.simple.model.Manager;
 import org.simple.model.User;
@@ -10,11 +11,11 @@ import org.simple.webhandler.WebHandler;
 import junit.framework.TestCase;
 
 public class TestWebHandler extends TestCase {
-
+	@Test
 	public void testGetInstance() {
 	}
 
-	
+	@Test
 	public void testSearch() {
 		WebHandler wh = WebHandler.getInstance();
 		List<User> users = wh.search("name2");
@@ -22,7 +23,7 @@ public class TestWebHandler extends TestCase {
 			System.out.println(u.getName());
 		}
 	}
-
+	@Test
 	public void testGetListUsers() {
 		WebHandler wh = WebHandler.getInstance();
 		List<User> users = wh.getListUsers();
@@ -30,14 +31,14 @@ public class TestWebHandler extends TestCase {
 			System.out.println(u.getName());
 		}
 	}
-
+	@Test
 	public void testDeleteUser() {
 		WebHandler wh = WebHandler.getInstance();
 		List<User> users = wh.getListUsers();
 		wh.deleteUser(users.get(54));
 
 	}
-
+	@Test
 	public void testSaveUser() {
 		WebHandler wh = WebHandler.getInstance();
 		User u = new User();
@@ -57,7 +58,7 @@ public class TestWebHandler extends TestCase {
 		u.setLanguage(l);
 		wh.saveUser(u);
 	}
-
+	@Test
 	public void testUpdateUser() {
 		WebHandler wh = WebHandler.getInstance();
 		List<User> users = wh.getListUsers();

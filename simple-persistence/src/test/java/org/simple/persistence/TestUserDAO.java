@@ -2,6 +2,7 @@ package org.simple.persistence;
 
 import java.util.List;
 
+import org.junit.Test;
 import org.simple.model.Language;
 import org.simple.model.Manager;
 import org.simple.model.User;
@@ -9,7 +10,7 @@ import org.simple.model.User;
 import junit.framework.TestCase;
 
 public class TestUserDAO extends TestCase {
-
+	@Test
 	public void testSave() {
 		UserDAO ud = new UserDAO();
 		ManagerDAO md = new ManagerDAO();
@@ -31,7 +32,7 @@ public class TestUserDAO extends TestCase {
 		u.setLanguage(l);
 		ud.save(u);
 	}
-
+	@Test
 	public void testUpdate() {
 		UserDAO ud = new UserDAO();
 		List<User> users = ud.getAll();
@@ -42,13 +43,13 @@ public class TestUserDAO extends TestCase {
 		user.setExperience("nuevaExperiencia");
 		user.setJobTitle("nuevo jobTitle");
 	}
-
+	@Test
 	public void testDelete() {
 		UserDAO ud = new UserDAO();
 		List<User> users = ud.getAll();
 		ud.delete(users.get(0));
 	}
-	
+	@Test
 	public void testSearch() {
 		UserDAO ud = new UserDAO();
 		List<User> users = ud.search("joaquin");
