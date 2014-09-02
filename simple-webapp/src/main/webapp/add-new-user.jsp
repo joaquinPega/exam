@@ -11,6 +11,25 @@
 <title>Add new user</title>
 </head>
 <body>
+<script>
+function validateEmail() {
+	var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{1,200}$/;
+	var email = document.forms["modifyForm"]["email"].value;
+	var password = document.forms["modifyForm"][ "password" ].value;
+	if (!emailPattern.test(email)) {
+		alert("Wrong mail");
+		return emailPattern.test(email);
+	} else if (email.length > 200) {
+		alert("Wrong mail mas de 200");
+		return false;
+
+	} else if(password.length == 0)
+	{
+		alert("Please enter a password!")
+		return false;
+	}
+}
+		</script>
 <%List<Manager> managers=(List<Manager>)session.getAttribute("managers");
 List<Language> languages=(List<Language>)session.getAttribute("languages");
 %>
@@ -18,7 +37,8 @@ List<Language> languages=(List<Language>)session.getAttribute("languages");
 		<a href="logout" id="logout">Logout</a>
 	</div>
 	<h1>Please add new user:</h1>
-	<form action="addNewUser" method="post">
+	<form name="modifyForm" action="addNewUser" method="post" onsubmit="return validateEmail();">
+	<center>
 		Name:<input type="text" name="name"><br>
 		Company:<input type="text" name="company"><br>
 		Job title:<input type="text" name="jobTitle"><br>
@@ -42,8 +62,9 @@ List<Language> languages=(List<Language>)session.getAttribute("languages");
 							}
 						%>
 				</select><br>
-		Password:<input type="text" name="password"> <br>
+		Password:<input type="password" name="password"> <br>
 		<input type="submit" value="apply">
+		</center>
 	</form>
 </body>
 </html>

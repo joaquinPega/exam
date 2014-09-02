@@ -89,8 +89,8 @@
 				<%} %>
 			</table>			
 			</form>
-			<a href="admin.jsp?selectedPage=<%=selectedPage%>">prevPag</a>
-			<a href="admin.jsp?selectedPage=<%=selectedPage%>">sigPag</a>
+			<a href="admin.jsp?selectedPage=<%=(int)selectedPage--%>">prevPag</a>
+			<a href="admin.jsp?selectedPage=<%=(int)selectedPage++%>">sigPag</a>
 		</center>
 		<br>
 		<center>
@@ -101,9 +101,10 @@
 	<br>
 	<div>
 		<center>
-			<p Search for user:>
-				<input type="text" class="adminButtons" value="Search here...">
-				<input type="button" value="Search" action="search-result.jsp">
+		<form name="search" action="search">
+				<input type="text" name="search" value="">
+				<input type="submit" value="Search" >
+		</form>
 		</center>
 	</div>
 </body>

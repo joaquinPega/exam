@@ -9,7 +9,6 @@
 <head>
 <link type="text/css" rel="Stylesheet" href="css/Style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script type="text/javascript" src="js/Scripts.js"></script>
 <title>Modify user</title>
 </head>
 <body>
@@ -20,14 +19,28 @@
 	<p align="center">
 		<i><%=((User) session.getAttribute("currentUser")).getName()%></i>
 	</p>
+	<script>
+	function validateEmail() {
+		var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{1,200}$/;
+		var email = document.forms["modifyForm"]["email"].value;
+		if (!emailPattern.test(email)) {
+			alert("Wrong mail");
+			return emailPattern.test(email);
+		} else if (email.length > 200) {
+			alert("Wrong mail mas de 200");
+			return false;
+
+		} 
+	}
+		</script>
 	<div id="modifyForm">
-	<form name="modifyForm2" id="modifyForm2" action="changeUser" method="post" onsubmit="return validateEmail2();">
+	<form name="modifyForm" action="changeUser" method="post" onsubmit="return validateEmail();">
 		<table>
 			<%
 				List<Language> languages = (List<Language>) session.getAttribute("languages");
 			%>
 			<tr>
-				<th>Email:<input id="email" type="text" name="email"  class="inputBox"><br>
+				<th>Email:<input type="text" name="email"  class="inputBox"><br>
 					<br></th>
 
 				<th>Experience:<input type="text" name="newExperience"

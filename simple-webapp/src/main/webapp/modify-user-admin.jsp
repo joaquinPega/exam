@@ -11,6 +11,25 @@
 <title>Modify user</title>
 </head>
 <body>
+<script>
+	function validateEmail() {
+		var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{1,200}$/;
+		var email = document.forms["modifyForm"]["email"].value;
+		var password = document.forms["modifyForm"][ "password" ].value;
+		if (!emailPattern.test(email)) {
+			alert("Wrong mail");
+			return emailPattern.test(email);
+		} else if (email.length > 200) {
+			alert("Wrong mail mas de 200");
+			return false;
+
+		} else if(password.length == 0)
+		{
+			alert("Please enter a password!")
+			return false;
+		}
+	}
+		</script>
 <%List<Manager> managers=(List<Manager>)session.getAttribute("managers");
 List<Language> languages=(List<Language>)session.getAttribute("languages");
 List<User> users = (List<User>)session.getAttribute("users");
@@ -23,7 +42,7 @@ for(User u: users){
 	}
 }
 %>
-<form action="modifyAdmin" method="post">
+<form name="modifyForm" action="modifyAdmin" method="post" onsubmit="return validateEmail();">
 		Name:<input type="text" name="name" value="<%=user.getName()%>"><br>
 		Company:<input type="text" name="company" value="<%=user.getCompany()%>"><br>
 		Job title:<input type="text" name="jobTitle" value="<%=user.getJobTitle()%>"><br>
