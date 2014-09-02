@@ -24,6 +24,7 @@ public class LogOutServlet extends HttpServlet {
 		req.getSession().removeAttribute("managers");
 		req.getSession().removeAttribute("userNotFound");
 		req.getSession().removeAttribute("isAdmin");
+		req.getSession().removeAttribute("idUser");
 		resp.sendRedirect("main.jsp");
 	}
 	
