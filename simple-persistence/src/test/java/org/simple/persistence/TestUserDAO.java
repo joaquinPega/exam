@@ -2,6 +2,8 @@ package org.simple.persistence;
 
 import java.util.List;
 
+import org.simple.model.Language;
+import org.simple.model.Manager;
 import org.simple.model.User;
 
 import junit.framework.TestCase;
@@ -10,7 +12,14 @@ public class TestUserDAO extends TestCase {
 
 	public void testSave() {
 		UserDAO ud = new UserDAO();
+		ManagerDAO md = new ManagerDAO();
+		LanguageDAO ld = new LanguageDAO();
 		User u = new User();
+		Manager m;
+		Language l;
+		m = md.getAll().get(0);
+		l = ld.getAll().get(0);
+		u.setId(1);
 		u.setName("Joaquin");
 		u.setAdmin(true);
 		u.setEmail("joaquin@pega.com");
@@ -18,6 +27,8 @@ public class TestUserDAO extends TestCase {
 		u.setExperience("Nothing");
 		u.setJobTitle("Java developer");
 		u.setPassword("asd");
+		u.setManager(m);
+		u.setLanguage(l);
 		ud.save(u);
 	}
 
