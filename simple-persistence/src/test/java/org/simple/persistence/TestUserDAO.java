@@ -16,18 +16,18 @@ public class TestUserDAO extends TestCase {
 
 	public void testDelete() {
 	}
-
-	//public void testSearch() {
-	//	UserDAO ud = new UserDAO();
-	//	System.out.println(ud.search("joaquin"));
-	//}
+	
+	public void testSearch() {
+		UserDAO ud = new UserDAO();
+		System.out.println(ud.search("joaquin"));
+	}
 
 	public void testGetAll() {
-		/*UserDAO ud = new UserDAO();
+		UserDAO ud = new UserDAO();
 		List<User> users=ud.getAll();
 		for(User u : users){
 			System.out.println(u.getName()+"\t"+ u.getManager().getName());
-		}*/
+		}
 	}
 
 }
