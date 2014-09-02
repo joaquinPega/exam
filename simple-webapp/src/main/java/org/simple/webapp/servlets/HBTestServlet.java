@@ -22,7 +22,6 @@ public class HBTestServlet extends HttpServlet {
 	 */
 	public HBTestServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -46,7 +45,6 @@ public class HBTestServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 
 }

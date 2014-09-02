@@ -104,7 +104,7 @@ public class User implements Comparable<User> {
 	}
 
 	public int compareTo(User arg0) {
-		// TODO Auto-generated method stub
+		
 		return name.compareTo(arg0.name);
 	}
 
