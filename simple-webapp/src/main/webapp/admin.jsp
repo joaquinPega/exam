@@ -15,86 +15,88 @@
 	<%
 		List<User> users = (List<User>) session.getAttribute("users");
 	%>
-<%
+	<%
 		int i = users.size();
-		int selectedPage=0;
-		boolean isOnePage=false;
-		int k, r;
-		if (i > 20) {
-			k = users.size() / 20;
-			r = users.size() % 20;
-		} else {
-			k = 0;
-			isOnePage=true;
-			r = users.size()%20;    
-		}
-		if(request.getParameter("selectedPage")!=null){
-			selectedPage=Integer.parseInt(request.getParameter("selectedPage"));		
-			if(selectedPage<=0){
-				selectedPage=0;
+			int selectedPage=0;
+			boolean isOnePage=false;
+			int k, r;
+			if (i > 20) {
+		k = users.size() / 20;
+		r = users.size() % 20;
+			} else {
+		k = 0;
+		isOnePage=true;
+		r = users.size()%20;    
 			}
-			if(selectedPage>=k-1){
-				selectedPage =k-1;
-			}
-				
+			if(request.getParameter("selectedPage")!=null){
+		selectedPage=Integer.parseInt(request.getParameter("selectedPage"));		
+		if(selectedPage<=0){
+			selectedPage=0;
 		}
-		
+		if(selectedPage>=k-1){
+			selectedPage =k-1;
+		}
+			
+			}
 	%>
-				<%!public int getPageStart(int currentPage) {
-						return currentPage * 20;
-					}
+	<%!public int getPageStart(int currentPage) {
+		return currentPage * 20;
+	}
 
-					public int getLastPage(int currentPage, int m,boolean isOnePage) {
-						if(isOnePage){
-							return m;
-						}
-						if (m == 0)
-							return currentPage * 20 + 20;
-						return currentPage * 20 + 20;
-					}
-					%>
+	public int getLastPage(int currentPage, int m, boolean isOnePage) {
+		if (isOnePage) {
+			return m;
+		}
+		if (m == 0)
+			return currentPage * 20 + 20;
+		return currentPage * 20 + 20;
+	}%>
 
-	
+
 	<div>
 		<a href="logout" id="logout">Logout</a>
 	</div>
 	<h1>Welcome administrator!</h1>
 	<div>
 		<h2>Users List</h2>
-		
-		<center>	
-			<form action=modify method="get">		
-			<table>
-				<tr>
-					<th>Name</th>
-					<th>Company</th>
-					<th>Job title</th>
-					<th>E-mail</th>
-					<th>Modify:</th>
-					<th>delete:</th>
-				</tr>
-				<%
-					for (int j = getPageStart(selectedPage); j < getLastPage(selectedPage , r,isOnePage); j++) {
-				%>
-				<tr>
-				
-					<td><%=users.get(j).getName()%></td>
-					<td><%=users.get(j).getCompany()%></td>
-					<td><%=users.get(j).getJobTitle()%></td>
-					<td><%=users.get(j).getEmail()%></td>
-					<td><input type="submit" name="id" value="<%=users.get(j).getId() %>" /></td>
-					<td><input type="submit" name="idDel" value="<%=users.get(j).getId() %>"/> </td>
-					
-				</tr>
-				<%} %>
-			</table>			
+
+		<center>
+			<form action=modify method="get" >
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Company</th>
+						<th>Job title</th>
+						<th>E-mail</th>
+						<th>Modify:</th>
+						<th>delete:</th>
+					</tr>
+					<%
+						for (int j = getPageStart(selectedPage); j < getLastPage(selectedPage , r,isOnePage); j++) {
+					%>
+					<tr>
+
+						<td><%=users.get(j).getName()%></td>
+						<td><%=users.get(j).getCompany()%></td>
+						<td><%=users.get(j).getJobTitle()%></td>
+						<td><%=users.get(j).getEmail()%></td>
+						<td><input type="submit" name="id"
+							value="<%=users.get(j).getId()%>" /></td>
+						<td><input type="submit" name="idDel"
+							value="<%=users.get(j).getId()%>" onsubmit="deleteUser()" /></td>
+
+					</tr>
+					<%
+						}
+					%>
+				</table>
 			</form>
-			<a href="admin.jsp?selectedPage=<%=selectedPage%>">prevPag</a>
-			<a href="admin.jsp?selectedPage=<%=selectedPage%>">sigPag</a>
+			<a href="admin.jsp?selectedPage=<%=selectedPage%>">prevPag</a> <a
+				href="admin.jsp?selectedPage=<%=selectedPage%>">sigPag</a>
 		</center>
 		<br>
 		<center>
-			<a href="add-new-user.jsp" >Create User</a>
+			<a href="add-new-user.jsp">Create User</a>
 		</center>
 	</div>
 	<br>
@@ -106,5 +108,6 @@
 				<input type="button" value="Search" action="search-result.jsp">
 		</center>
 	</div>
+	<script type="text/javascript" src="js/Scripts.js"></script>
 </body>
 </html>
