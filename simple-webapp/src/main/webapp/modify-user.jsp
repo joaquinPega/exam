@@ -7,6 +7,7 @@
 <html>
 <head>
 <link type="text/css" rel="Stylesheet" href="css/Style.css" />
+<script type="text/javascript" src="js/Scripts.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Modify user</title>
 </head>
@@ -20,7 +21,6 @@
 	</p>
 	<script>
 	function validateEmail() {
-		var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,200}$/;
 		var email = document.forms["modifyForm"]["email"].value;
 		if (!emailPattern.test(email)) {
 			alert("Wrong mail");

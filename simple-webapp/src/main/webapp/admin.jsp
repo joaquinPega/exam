@@ -6,6 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link type="text/css" rel="Stylesheet" href="css/Style.css" />
+<script type="text/javascript" src="js/Scripts.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Administrator page</title>
@@ -74,7 +75,7 @@ function returncheckCorrect() {
 
 		<center>
 			<form action=modify method="get" >
-				<table>
+				<table id="tableUsers">
 					<tr>
 						<th>Name</th>
 						<th>Company</th>
@@ -93,9 +94,9 @@ function returncheckCorrect() {
 						<td><%=users.get(j).getJobTitle()%></td>
 						<td><%=users.get(j).getEmail()%></td>
 						<td><input type="submit" name="id"
-							value="<%=users.get(j).getId()%>" /></td>
+							value="<%=users.get(j).getId()%>" class="buttonModify" /></td>
 						<td><input type="submit" name="idDel"
-							value="<%=users.get(j).getId()%>" onClick="return confirm('Are you sure you want to continue')"/></td>
+							value="<%=users.get(j).getId()%>" onClick="return confirm('Are you sure you want to continue')" class="buttonDelete"/></td>
 
 					</tr>
 					<%

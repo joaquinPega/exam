@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link type="text/css" rel="Stylesheet" href="css/Style.css" />
+<script type="text/javascript" src="js/Scripts.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Main</title>
@@ -39,7 +40,7 @@
 	</div>
 
 </body>
-<script type="text/javascript" src="js/Scripts.js"></script>
+
 <script>
 if(<%=userLogged%>){
 	document.getElementById("loginForm").style.visibility="hidden";
