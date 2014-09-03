@@ -88,6 +88,7 @@ for(User u: users){
         document.getElementById("lblWords").innerHTML=maxlimit - countfield.value.length;
         if (countfield.value.length > maxlimit) {
         	countfield.value = countfield.value.substring(0, maxlimit);
+        	document.getElementById("lblWords").innerHTML=maxlimit - countfield.value.length;
                 return false;
         } 
 	} 

@@ -25,6 +25,7 @@
         document.getElementById("lblWords").innerHTML=maxlimit - countfield.value.length;
         if (countfield.value.length > maxlimit) {
         	countfield.value = countfield.value.substring(0, maxlimit);
+        	document.getElementById("lblWords").innerHTML=maxlimit - countfield.value.length;
                 return false;
         } 
 	} 
@@ -51,7 +52,7 @@
 					<br></th>
 
 				<th>Experience:<input type="text" name="newExperience" id="experience"
-					class="inputBox" maxlength="500" onkeydown="textCounter('experience',500);" onkeyup="textCounter('experience',500);"><div id="lblWords"></div><br> <br></th>
+					class="inputBox" onkeydown="textCounter('experience',500);" onkeyup="textCounter('experience',500);"><div id="lblWords"></div><br> <br></th>
 				<th>Language:<select name="language">
 						<%
 							for (int i = 0; i < languages.size(); i++) {

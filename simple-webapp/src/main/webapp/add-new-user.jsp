@@ -29,6 +29,15 @@ function validateEmail() {
 		return false;
 	}
 }
+function textCounter(field, maxlimit) {
+    var countfield = document.getElementById(field);
+    document.getElementById("lblWords").innerHTML=maxlimit - countfield.value.length;
+    if (countfield.value.length > maxlimit) {
+    	countfield.value = countfield.value.substring(0, maxlimit);
+    	document.getElementById("lblWords").innerHTML=maxlimit - countfield.value.length;
+            return false;
+    } 
+} 
 		</script>
 <%List<Manager> managers=(List<Manager>)session.getAttribute("managers");
 List<Language> languages=(List<Language>)session.getAttribute("languages");
@@ -52,7 +61,7 @@ List<Language> languages=(List<Language>)session.getAttribute("languages");
 							}
 						%>
 				</select><br>
-		Experience:<input type="text" name="experience" id="experience" onkeyup="textCounter(this,'counter',500)"><br>
+		Experience:<input type="text" name="experience" id="experience" onkeydown="textCounter('experience',500);" onkeyup="textCounter('experience',500);"><div id="lblWords"></div><br>
 		Language:<select name="language">
 					<%
 							for (int i = 0; i < languages.size(); i++) {
@@ -66,15 +75,17 @@ List<Language> languages=(List<Language>)session.getAttribute("languages");
 		<input type="submit" value="apply">
 		</center>
 	</form>
+	<center>
+	<form action="admin.jsp"><input type="submit" value="cancel"></form></center>
 	<script>
-	function textCounter(field, field2, maxlimit) {
-        var countfield = document.getElementById(field2);
-        if (field.value.length > maxlimit) {
-                field.value = field.value.substring(0, maxlimit);
+	function textCounter(field, maxlimit) {
+        var countfield = document.getElementById(field);
+        document.getElementById("lblWords").innerHTML=maxlimit - countfield.value.length;
+        if (countfield.value.length > maxlimit) {
+        	countfield.value = countfield.value.substring(0, maxlimit);
+        	document.getElementById("lblWords").innerHTML=maxlimit - countfield.value.length;
                 return false;
-        } else {
-                countfield.value = maxlimit - field.value.length;
-        }
+        } 
 	} 
 	</script>
 </body>
