@@ -13,7 +13,7 @@
 List<User> users = (List<User>)session.getAttribute("users");
 for(User u : users){
 %>
-<%=u.getName() %></br>
+<%=u.getName() %><br>
 <%} %>
 </body>
 </html>

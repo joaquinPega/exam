@@ -39,7 +39,8 @@ function textCounter(field, maxlimit) {
     } 
 } 
 		</script>
-<%List<Manager> managers=(List<Manager>)session.getAttribute("managers");
+<%
+List<Manager> managers=(List<Manager>)session.getAttribute("managers");
 List<Language> languages=(List<Language>)session.getAttribute("languages");
 %>
 	<div>
