@@ -7,7 +7,7 @@ body {
     float: left;
 }
 #tableUsers td{
-	border-right: 10px solid #E0ECF8;
+	border-right: 10px solid #000080;
 	border-left: 10px solid #E0ECF8;
 	color: #669;
 	padding: 12px 2px 0;
@@ -29,7 +29,7 @@ body {
 	padding-bottom:25px;
 	background: url(/simple-webapp/images/delete.jpg);
 	height: 100%;
-	width:120%;
+	width:115%;
 }
 .loginFormRight{
     border-left: thick solid black;

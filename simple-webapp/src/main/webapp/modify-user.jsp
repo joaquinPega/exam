@@ -20,6 +20,14 @@
 		<i><%=((User) session.getAttribute("currentUser")).getName()%></i>
 	</p>
 	<script>
+	function textCounter(field, maxlimit) {
+        var countfield = document.getElementById(field);
+        document.getElementById("lblWords").innerHTML=maxlimit - countfield.value.length;
+        if (countfield.value.length > maxlimit) {
+        	countfield.value = countfield.value.substring(0, maxlimit);
+                return false;
+        } 
+	} 
 	function validateEmail() {
 		var email = document.forms["modifyForm"]["email"].value;
 		if (!emailPattern.test(email)) {
@@ -30,12 +38,6 @@
 			return false;
 
 		} 
-	}
-	function validaExperiencia(){
-		var exp = document.forms["modifyForm"]["newExperience"].value;
-		if(exp.length>500){
-			alert("500");
-		}
 	}
 		</script>
 	<div id="modifyForm">
@@ -48,8 +50,8 @@
 				<th>Email:<input type="text" name="email"  class="inputBox"><br>
 					<br></th>
 
-				<th>Experience:<input type="text" name="newExperience"
-					class="inputBox" onkeydown="return validaExperiencia()"><br> <br></th>
+				<th>Experience:<input type="text" name="newExperience" id="experience"
+					class="inputBox" maxlength="500" onkeydown="textCounter('experience',500);" onkeyup="textCounter('experience',500);"><div id="lblWords"></div><br> <br></th>
 				<th>Language:<select name="language">
 						<%
 							for (int i = 0; i < languages.size(); i++) {

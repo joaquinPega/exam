@@ -104,8 +104,8 @@ function returncheckCorrect() {
 					%>
 				</table>
 			</form>
-			<a href="nextPage?id=0">--</a>
-			<a href="nextPage?id=1">++</a>
+			<a href="nextPage?id=0"> <<&nbsp </a>
+			<a href="nextPage?id=1"> &nbsp >> </a>
 		</center>
 		<br>
 		<center>
