@@ -5,3 +5,5 @@ userNotFound
 currentUser
 isAdmin
 idUser
+
+Ejecutar InicioServlet.java en un tomcat para precargar la base de datos
