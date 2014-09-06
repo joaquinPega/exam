@@ -4,7 +4,7 @@
 <hibernate-configuration>
  <session-factory>
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.url">jdbc:mysql://GLB-D0148/exam</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost/exam</property>
   <property name="hibernate.connection.username">prueba</property>
   <property name="hibernate.connection.password">prueba</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
