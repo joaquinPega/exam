@@ -1,13 +1,24 @@
 package org.simple.model;
 
+import javax.enterprise.context.SessionScoped;
+import javax.enterprise.inject.Default;
+
+import java.io.Serializable;
+
 
 /** Model of the class user
  * 
  * @author Joaquin Pega (joaquin.pega@globant.com); Artiom Amerhanov (artiom.amerhanov@globant.com)
  *
  */
-public class User implements Comparable<User> {
+@SessionScoped
+@Default
+public class User implements Serializable, Comparable<User> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String company;
 	private String jobTitle;

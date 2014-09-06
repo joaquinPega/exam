@@ -3,6 +3,7 @@ package org.simple.webapp.servlets;
 import java.io.IOException;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,7 @@ import org.simple.webhandler.WebHandler;
 public class AddNewUserServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
-
+	@Inject User user;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
